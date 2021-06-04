@@ -1,0 +1,219 @@
+{
+  "manifestVersion": "3.1",
+  "impls": {
+    "4544feaa46b318f7c1fef667d3d3ad8b57dc2ac0dd9d1ae4945dfb4ea8daae57": {
+      "address": "0x8FBB162eA9e1047ceCA4eF4Aeaa5ddD11907a43f",
+      "txHash": "0xebf2719d55f1916b034b30d679c0a687c24e41de8634c6942597d23e59dc661f",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "OpenZeppelin/Initializable.sol:24"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "OpenZeppelin/Initializable.sol:29"
+          },
+          {
+            "contract": "Cal",
+            "label": "owner",
+            "type": "t_address",
+            "src": "Cal.sol:17"
+          },
+          {
+            "contract": "Cal",
+            "label": "ethReceivingWallet",
+            "type": "t_address_payable",
+            "src": "Cal.sol:18"
+          },
+          {
+            "contract": "Cal",
+            "label": "treasuryWallet",
+            "type": "t_address",
+            "src": "Cal.sol:19"
+          },
+          {
+            "contract": "Cal",
+            "label": "_totalsupply",
+            "type": "t_uint256",
+            "src": "Cal.sol:22"
+          },
+          {
+            "contract": "Cal",
+            "label": "transferrable",
+            "type": "t_bool",
+            "src": "Cal.sol:23"
+          },
+          {
+            "contract": "Cal",
+            "label": "balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "Cal.sol:25"
+          },
+          {
+            "contract": "Cal",
+            "label": "allowed",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "Cal.sol:26"
+          },
+          {
+            "contract": "Cal",
+            "label": "locked",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "Cal.sol:27"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          }
+        }
+      }
+    },
+    "7214f29fe5878790bb7c1ea04897679b8c7fea6a961077d40428c5aed06aa4cf": {
+      "address": "0x897d34108CD1C1Ea5bA61FF0F0b467a1E40a6Fe2",
+      "txHash": "0x01172eaa7600aff13fad9951e0c8200eb1b7e81cf48d61cb3eade3cf61cb595c",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "OpenZeppelin/Initializable.sol:24"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "OpenZeppelin/Initializable.sol:29"
+          },
+          {
+            "contract": "USDT",
+            "label": "balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "USDT.sol:15"
+          },
+          {
+            "contract": "USDT",
+            "label": "allowed",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "USDT.sol:16"
+          },
+          {
+            "contract": "USDT",
+            "label": "owner",
+            "type": "t_address",
+            "src": "USDT.sol:18"
+          },
+          {
+            "contract": "USDT",
+            "label": "_totalsupply",
+            "type": "t_uint256",
+            "src": "USDT.sol:19"
+          }
+        ],
+        "types": {
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "9120b434a42239e7dbb6b999ef6475f2577e65cdc02189491cfb09b1bed675e5": {
+      "address": "0x7927E2407fF8762D7Fbc42a0d0382797aFFAe816",
+      "txHash": "0xad28af21dd2328cb9c6c2da57db9054ab924a59e9740009e2324576609f979b9",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "OpenZeppelin/Initializable.sol:24"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "OpenZeppelin/Initializable.sol:29"
+          },
+          {
+            "contract": "CalSwap",
+            "label": "USDT",
+            "type": "t_contract(IERC20)914",
+            "src": "CalSwap.sol:11"
+          },
+          {
+            "contract": "CalSwap",
+            "label": "CAL",
+            "type": "t_contract(IERC20)914",
+            "src": "CalSwap.sol:12"
+          },
+          {
+            "contract": "CalSwap",
+            "label": "ethPrice",
+            "type": "t_uint256",
+            "src": "CalSwap.sol:13"
+          },
+          {
+            "contract": "CalSwap",
+            "label": "owner",
+            "type": "t_address_payable",
+            "src": "CalSwap.sol:15"
+          }
+        ],
+        "types": {
+          "t_contract(IERC20)914": {
+            "label": "contract IERC20"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    }
+  },
+  "admin": {
+    "address": "0x24dB3a579A08600D751Ba8249181AFc4A3C49265",
+    "txHash": "0x1815a8b1eec6e3bf80dc3f03a9fd03baeb6527e988f5ff6aaaae5acafe1b79c2"
+  }
+}

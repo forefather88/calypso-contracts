@@ -1,0 +1,8 @@
+node_modules
+build/contracts
+.secret
+.openzeppelin/unknown-1337.json
+notes
+package-lock.json
+contracts/artifacts
+.DS_Store
