@@ -2,7 +2,7 @@
 pragma solidity ^0.8.3;
 
 struct Bet {
-    bytes32 id;
+    string id;
     address bettor;
     uint8 side;
     uint256 amount;
