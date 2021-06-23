@@ -5,8 +5,9 @@ import "./OpenZeppelin/SafeMath.sol";
 import "./BettingPool.sol";
 import "./Oracle.sol";
 import "./OpenZeppelin/IERC20.sol";
+import "./OpenZeppelin/Initializable.sol";
 
-contract PoolManager {
+contract PoolManager is Initializable {
     using SafeMath for uint256;
 
     address public owner;
@@ -20,7 +21,7 @@ contract PoolManager {
     uint8 constant betting = 0;
     uint8 constant baccarat = 1;
 
-    constructor() {
+    function initialize() public initializer {
         owner = msg.sender;
         oracle = Oracle(0xCaEE4A7E30a4780530266138e8facF292FC5353b);
     }

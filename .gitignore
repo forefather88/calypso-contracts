@@ -6,3 +6,5 @@ notes
 package-lock.json
 contracts/artifacts
 .DS_Store
+.env
+metamask.txt

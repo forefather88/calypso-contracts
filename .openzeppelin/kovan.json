@@ -1,0 +1,1363 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x8C179eAFC6F608f85F587988d0AC1048877822E5",
+    "txHash": "0x5164dc643218963806db1a9ba1e248bdbd6c2616df8ee36117887f0bc0d7f32e"
+  },
+  "proxies": [
+    {
+      "address": "0x213D91f2D98A5A7f4C53A8496f741912298F594D",
+      "txHash": "0xc74763f9855769aa374cf7acb047ec8ce1c554d3debcfb262dbf337b66c6693c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x3143aCDC37C8F3028C3feA288ea87C61411a4d28",
+      "txHash": "0xef93c8cd9d1774afbf1fec2a7290545f6c737bbb7e07bc3162879dc8a0bb59ae",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xec0A5D38c5C65Ee775d28aBf412ea2C5ffa76728",
+      "txHash": "0x80ded1d33790fe39d607b716f8b2f7cbbbca8ca697500490f78be02d354f808f",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x679D993290D209a2Ccb6cd9F5a42A6302c41B1Ea",
+      "txHash": "0x1b395c81636274f21470419b6fae75603c9fcfd2dc8cfdfb4a96b72be0b97d4e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x476E489d8671216fE22ea24e6A300Ec2fF0A4470",
+      "txHash": "0xe5507834f1a37a99b409766f5feaee2b97452cdcb859421013076b4f7a48c2a4",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xbbf297ee562b11544802c055e9f5EB91E53E06d8",
+      "txHash": "0x396d4d21b88848305d5554d3973d33e0070661708f57955ad585f4908abb11d1",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x07ceDAE01C088b60F12879eAd6726655B6b6759E",
+      "txHash": "0x873d467fa100ff0587614f7721c43570c99d1dabfffe3c85bb2d8119b2ac4315",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x659a1e97b5162e5E7971718B5e08c500414C7729",
+      "txHash": "0x1cbeeff6b208a611ac1228f8abc9099bf771f92b74318636aa05cb5ef740de90",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x8b283930dFe61888EEdadE68cb01938d16216884",
+      "txHash": "0xcf38fc4bcbb78b87a7ce8664724ca16d07ff938b45bdf6f5f3afbeb6f6f3fb4c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0C1840E46F8283AC63242b5FC7206B0faD20b06B",
+      "txHash": "0xe3566bfe22d368957c494d95a53de869612a830428b85315f10b41d06e04e006",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "c4a20ccecddf7a530b2729fd9b68618caf4dd522df179b50d6da56ec463476ea": {
+      "address": "0x29fD27085c67a2DCA0dA04ff258c15605b9BA79b",
+      "txHash": "0x6906b555d5ac8d676a8554fa8213e91ca49678d3f275de4272bc99194e613cd7",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4569",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4569": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "2665c8f4aa575d3dc67afbf201f9920f26239dad5619005e0fafbf09960e3640": {
+      "address": "0xCD0437C9b1DFF91018f4A9898205798C63466098",
+      "txHash": "0x218a131dc940190c349f3ae4d3a7edf7ea47119bc349fcbb63afaebe4ff9ceb2",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4569",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4569": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "902cad97837ead16ed75ef2df862421163a372f55857f11998bd66cc8396cef8": {
+      "address": "0x94B33B336C93A2e3ca21F885313207ece1CC5035",
+      "txHash": "0x8ab7aa6dd746dd6b5fa7c9a122a2a48e406841221424593eccb091af95062f02",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4569",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4569": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "6af193ba5b5f49e4e237891d12e8a37dfc792eb3fb0c227a45d1e1cb157a5da6": {
+      "address": "0x46A5383fDC001804aEBd9d605aB8Ffd9e57352B5",
+      "txHash": "0x895ed24d88387d9107abc6dc43f70dd06f1d7a6c5b67f54ad615271f735f7a54",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4569",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4569": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "86d17197f59870354e560046b3c5188909c83096757518ea0c03e581b827adef": {
+      "address": "0x96C11054bDb4789864559618ec47CB0022f1445D",
+      "txHash": "0xd546644295e3f6591111ede6ab3fa49b63cf41aa47052321288c2b9f51afde83",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4569",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4569": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "0449d4a53fd5dc48a251ae8710be55f41ee22dae210fd178b2dd20e2dda36e2b": {
+      "address": "0x78cE9249D09E39ed8F56f46AdEdb6a468afa4F4B",
+      "txHash": "0xfe10243b5ddc29a6764a8e1c6d9fc7a6d60f74fe433a3aa3d3a72f8da649b740",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Affiliate",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Affiliate.sol:12"
+          },
+          {
+            "contract": "Affiliate",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4574",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Affiliate.sol:13"
+          },
+          {
+            "contract": "Affiliate",
+            "label": "affiliateOf",
+            "type": "t_mapping(t_address,t_address)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Affiliate.sol:15"
+          },
+          {
+            "contract": "Affiliate",
+            "label": "referralsOf",
+            "type": "t_mapping(t_address,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Affiliate.sol:16"
+          },
+          {
+            "contract": "Affiliate",
+            "label": "indexOfReferral",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Affiliate.sol:17"
+          },
+          {
+            "contract": "Affiliate",
+            "label": "maxNumberOf",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Affiliate.sol:18"
+          },
+          {
+            "contract": "Affiliate",
+            "label": "awardsOf",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Affiliate.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_contract(Oracle)4574": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_address)": {
+            "label": "mapping(address => address)"
+          },
+          "t_mapping(t_address,t_array(t_address)dyn_storage)": {
+            "label": "mapping(address => address[])"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "9e17b04701e75bb60666460cb6868454316b27ce6b31f8259cd452ee72afab2c": {
+      "address": "0x2C5188F054f076DF4a1083867C5bdcEBce46E338",
+      "txHash": "0xac30f2633c2fb492df2854d5073bd1ee05fb01390f7b8b8b1dfe99906df57305",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Cal",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Cal.sol:17"
+          },
+          {
+            "contract": "Cal",
+            "label": "ethReceivingWallet",
+            "type": "t_address_payable",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Cal.sol:18"
+          },
+          {
+            "contract": "Cal",
+            "label": "treasuryWallet",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Cal.sol:19"
+          },
+          {
+            "contract": "Cal",
+            "label": "_totalsupply",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Cal.sol:22"
+          },
+          {
+            "contract": "Cal",
+            "label": "transferrable",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Cal.sol:23"
+          },
+          {
+            "contract": "Cal",
+            "label": "balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Cal.sol:25"
+          },
+          {
+            "contract": "Cal",
+            "label": "allowed",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Cal.sol:26"
+          },
+          {
+            "contract": "Cal",
+            "label": "locked",
+            "type": "t_mapping(t_address,t_bool)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Cal.sol:27"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          }
+        }
+      }
+    },
+    "cee3c829229d3b09549bb32933a8c0b8f39333f8f7cbe70f6d6fe3154e9d1d89": {
+      "address": "0xA32A1e73473620eADBf0aC9C54834dE5198906D2",
+      "txHash": "0x7636d20bd5ded862c3c0e86f46eb91e75a2fe2fd5a7c1dae1caaac1001ff3ad5",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "USDT",
+            "label": "balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\USDT.sol:16"
+          },
+          {
+            "contract": "USDT",
+            "label": "allowed",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\USDT.sol:17"
+          },
+          {
+            "contract": "USDT",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\USDT.sol:19"
+          },
+          {
+            "contract": "USDT",
+            "label": "_totalsupply",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\USDT.sol:20"
+          }
+        ],
+        "types": {
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "63bb7f72a1760545891bc6977729310e7cd696638028cfb07dce46e73c743699": {
+      "address": "0xfb168482f048d6dc18c3b5Dd138F335073043b53",
+      "txHash": "0x4ab69b71de5ce3ad9988a1db13bce814415f0d1f7fc14a5c6193585bb0ac4831",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "CalSwap",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4594",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\CalSwap.sol:13"
+          },
+          {
+            "contract": "CalSwap",
+            "label": "owner",
+            "type": "t_address_payable",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\CalSwap.sol:15"
+          }
+        ],
+        "types": {
+          "t_contract(Oracle)4594": {
+            "label": "contract Oracle"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "66a0c790c20f178fdaa645adddc802fbf765f7d85e23a6c18b6a3de05fb80130": {
+      "address": "0x2052E69745Be5D297f894AB17D277E46C8e79Ef4",
+      "txHash": "0xa773b795db54f5055eab9f2a543d3bb9da01eab54107fa4bf0030451d1c3d77f",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Oracle",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:65"
+          },
+          {
+            "contract": "Oracle",
+            "label": "tokenPrice",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:66"
+          },
+          {
+            "contract": "Oracle",
+            "label": "manualInputPrice",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:67"
+          },
+          {
+            "contract": "Oracle",
+            "label": "ethPrice",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:68"
+          },
+          {
+            "contract": "Oracle",
+            "label": "usdt",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:69"
+          },
+          {
+            "contract": "Oracle",
+            "label": "cal",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:70"
+          },
+          {
+            "contract": "Oracle",
+            "label": "staking",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:71"
+          },
+          {
+            "contract": "Oracle",
+            "label": "escrow",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:72"
+          },
+          {
+            "contract": "Oracle",
+            "label": "operator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:73"
+          },
+          {
+            "contract": "Oracle",
+            "label": "affiliate",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:74"
+          },
+          {
+            "contract": "Oracle",
+            "label": "stakePercent",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:75"
+          },
+          {
+            "contract": "Oracle",
+            "label": "platformFee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:76"
+          },
+          {
+            "contract": "Oracle",
+            "label": "affiliatePercent",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:77"
+          },
+          {
+            "contract": "Oracle",
+            "label": "supportCurrencies",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:78"
+          },
+          {
+            "contract": "Oracle",
+            "label": "currencyIndex",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:79"
+          },
+          {
+            "contract": "Oracle",
+            "label": "ref",
+            "type": "t_contract(AggregatorInterface)3851",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:80"
+          },
+          {
+            "contract": "Oracle",
+            "label": "upperLimit",
+            "type": "t_int128",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:82"
+          },
+          {
+            "contract": "Oracle",
+            "label": "rateK",
+            "type": "t_int128",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:83"
+          },
+          {
+            "contract": "Oracle",
+            "label": "inflectionPoint",
+            "type": "t_int128",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:84"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(AggregatorInterface)3851": {
+            "label": "contract AggregatorInterface"
+          },
+          "t_int128": {
+            "label": "int128"
+          }
+        }
+      }
+    },
+    "01028e7053700326a20368e64b066d0d28b4454a4fe0a4b497e44ad822c8538f": {
+      "address": "0xeB14793D7f50C5C8c7b350930D17d53321A2B957",
+      "txHash": "0xc2d4ff17de8d9528ee31da79cb2fb376450b9699d5b22fefffe75f19a1242ca9",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Staking",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:12"
+          },
+          {
+            "contract": "Staking",
+            "label": "accounts",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:13"
+          },
+          {
+            "contract": "Staking",
+            "label": "total",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:14"
+          },
+          {
+            "contract": "Staking",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4589",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:15"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeAmount",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:17"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncome",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:18"
+          },
+          {
+            "contract": "Staking",
+            "label": "accountIndex",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(Oracle)4589": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "3aa41e994be1e419e460b0ac15ecea3bc272dd5ecd61c495e23fe90bea3b6bd7": {
+      "address": "0x77E19098eC74780637434c7d8F9cD5ec1DFc3E10",
+      "txHash": "0x085ab1d10d18b2dfbbe74992c691a0e7ee2b8fa395163788bd9bc8aabbada821",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Escrow",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Escrow.sol:13"
+          },
+          {
+            "contract": "Escrow",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4594",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Escrow.sol:14"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_contract(Oracle)4594": {
+            "label": "contract Oracle"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "da7bfb58d1ebe2878c6147a3ef0872210ad219a64578f6764ae878f405a3d53c": {
+      "address": "0xc1571B8c2060Ad1e16B1e0f054136C1F59DCf915",
+      "txHash": "0x8582ac04e98ab85c91eab66f8f70a36f469861cd7752cc46f19afbfa5bf9af63",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "TestFaucet",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\TestFaucet.sol:12"
+          },
+          {
+            "contract": "TestFaucet",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4594",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\TestFaucet.sol:13"
+          },
+          {
+            "contract": "TestFaucet",
+            "label": "receivedUsdtUser",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\TestFaucet.sol:14"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_contract(Oracle)4594": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "e6c6fe3b4ad170b426c3fa92f944f29f638a4f2f35209f97d45fc7bbf7e3a663": {
+      "address": "0x0B878f037CCfB194ab326356C74f8C095F5E10d4",
+      "txHash": "0x0613b3ee939c0788c25200d4fc10f32b307ba67fc0851a47d819c5c83365bf66",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Oracle",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:65"
+          },
+          {
+            "contract": "Oracle",
+            "label": "tokenPrice",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:66"
+          },
+          {
+            "contract": "Oracle",
+            "label": "manualInputPrice",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:67"
+          },
+          {
+            "contract": "Oracle",
+            "label": "ethPrice",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:68"
+          },
+          {
+            "contract": "Oracle",
+            "label": "usdt",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:69"
+          },
+          {
+            "contract": "Oracle",
+            "label": "cal",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:70"
+          },
+          {
+            "contract": "Oracle",
+            "label": "staking",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:71"
+          },
+          {
+            "contract": "Oracle",
+            "label": "escrow",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:72"
+          },
+          {
+            "contract": "Oracle",
+            "label": "operator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:73"
+          },
+          {
+            "contract": "Oracle",
+            "label": "affiliate",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:74"
+          },
+          {
+            "contract": "Oracle",
+            "label": "stakePercent",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:75"
+          },
+          {
+            "contract": "Oracle",
+            "label": "platformFee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:76"
+          },
+          {
+            "contract": "Oracle",
+            "label": "affiliatePercent",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:77"
+          },
+          {
+            "contract": "Oracle",
+            "label": "supportCurrencies",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:78"
+          },
+          {
+            "contract": "Oracle",
+            "label": "currencyIndex",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:79"
+          },
+          {
+            "contract": "Oracle",
+            "label": "ref",
+            "type": "t_contract(AggregatorInterface)3856",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:80"
+          },
+          {
+            "contract": "Oracle",
+            "label": "upperLimit",
+            "type": "t_int128",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:82"
+          },
+          {
+            "contract": "Oracle",
+            "label": "rateK",
+            "type": "t_int128",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:83"
+          },
+          {
+            "contract": "Oracle",
+            "label": "inflectionPoint",
+            "type": "t_int128",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Oracle.sol:84"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(AggregatorInterface)3856": {
+            "label": "contract AggregatorInterface"
+          },
+          "t_int128": {
+            "label": "int128"
+          }
+        }
+      }
+    },
+    "e1d3f0d6f2f82dea2c4453fde4cfbe87f5ab88496604b09a515583d88e02c96b": {
+      "address": "0x3211C5179a3450EDe6a44a8dB82411273146D7B4",
+      "txHash": "0xad09e2f1000dbb2ea3923340dfaede346ff4a11abb796108a579fb076a69bc4f",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Staking",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:12"
+          },
+          {
+            "contract": "Staking",
+            "label": "accounts",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:13"
+          },
+          {
+            "contract": "Staking",
+            "label": "total",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:14"
+          },
+          {
+            "contract": "Staking",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4594",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:15"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeAmount",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:17"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncome",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:18"
+          },
+          {
+            "contract": "Staking",
+            "label": "accountIndex",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\Truffle\\contracts\\Staking.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(Oracle)4594": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    }
+  }
+}
