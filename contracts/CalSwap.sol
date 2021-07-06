@@ -28,7 +28,7 @@ contract CalSwap is Initializable {
 
     function initialize() public initializer {
         owner = payable(msg.sender);
-        oracle = Oracle(0xea451D9038e91BdeBc5484B33ba8096EcE07D182);
+        oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
     }
 
     receive() external payable {

@@ -25,7 +25,7 @@ contract Affiliate is Initializable {
 
     function initialize() public initializer {
         owner = msg.sender;
-        oracle = Oracle(0xCaEE4A7E30a4780530266138e8facF292FC5353b);
+        oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
     }
 
     function getAffiliateOf(address _addr) external view returns (address) {
@@ -70,7 +70,7 @@ contract Affiliate is Initializable {
             uint256 _award = _awards[i];
             totalAward = totalAward.add(_award);
             awardsOf[_affiliate][_currency] = awardsOf[_affiliate][_currency]
-                .add(_award);
+            .add(_award);
         }
         return totalAward;
     }

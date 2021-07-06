@@ -17,6 +17,19 @@ module.exports = {
       gasPrice: 100000000000,
       skipDryRun: true,
     },
+    rinkeby: {
+      networkCheckTimeout: 10000,
+      provider: () =>
+        new HDWalletProvider(
+          mnemonic,
+          "wss://rinkeby.infura.io/ws/v3/f52c2dad411f4cd89783cfc42700bfca"
+        ),
+      network_id: 4,
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    },
   },
 
   // Set default mocha options here, use special reporters etc.

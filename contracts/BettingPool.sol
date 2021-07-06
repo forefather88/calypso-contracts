@@ -296,28 +296,58 @@ contract BettingPool {
         result = _sideWin;
         if (total > 0) {
             winTotal = sideTotals[result];
-            uint256 lostTotal = total - winTotal;
-            poolFeeAmount = lostTotal.mul(poolFee).div(10000);
-            platformFeeAmount = lostTotal.mul(poolManager.getPlatformFee()).div(
-                10000
-            );
-            winOutcome = lostTotal.sub(poolFeeAmount).sub(platformFeeAmount);
-            forwardPlatformFee();
+            // If there are no winners in the pool the pool creator gets all the bets
+            if (winTotal == 0) {
+                platformFeeAmount = total.mul(poolManager.getPlatformFee()).div(
+                    10000
+                );
+                winOutcome = total.sub(platformFeeAmount);
+            }
+            //If there are only winners in the pool, winners get back their bets without paying fees
+            else if (winTotal == total) {
+                winOutcome = total;
+            }
+            //Regular case, when there winners and loosers in the pool
+            else {
+                platformFeeAmount = total.mul(poolManager.getPlatformFee()).div(
+                    10000
+                );
+                poolFeeAmount = total.mul(poolFee).div(10000);
+                winOutcome = total.sub(poolFeeAmount).sub(platformFeeAmount);
+            }
+            if (platformFeeAmount > 0) {
+                forwardPlatformFee();
+            }
             forwardAffiliateAward();
         }
         return true;
     }
 
+    /*uint256 lostTotal = total - winTotal;
+                poolFeeAmount = lostTotal.mul(poolFee).div(10000);
+                platformFeeAmount = lostTotal
+                .mul(poolManager.getPlatformFee())
+                .div(10000);
+                winOutcome = lostTotal.sub(poolFeeAmount).sub(
+                    platformFeeAmount
+                ); */
+
     function claimReward() external returns (bool) {
         require(!claimedUser[msg.sender], "You already claimed");
         uint256 amount;
-        if (block.timestamp - endDate > WAIT_TIME_FOR_RESULT && result == 0) {
-            // can withdraw after 5 hours
+        if (
+            (block.timestamp - endDate > WAIT_TIME_FOR_RESULT && result == 0) ||
+            winOutcome == total
+        ) {
+            // can withdraw after 5 hours or we have only winners in a pool
             amount = userBet[msg.sender];
         } else {
             require(result != 0);
             uint256 winShare = userSideBet[msg.sender][result];
-            amount = winTotal != 0 ? winOutcome.mul(winShare).div(winTotal) : 0;
+            uint256 preAmount = winTotal != 0
+                ? winOutcome.mul(winShare).div(winTotal)
+                : 0;
+            amount = preAmount >= winShare ? preAmount : winShare;
         }
 
         claimedAmount[msg.sender] = amount;
@@ -348,6 +378,10 @@ contract BettingPool {
         );
         require(!claimedDepositAndFee);
         claimedDepositAndFee = true;
+
+        if (winTotal == 0) {
+            withdraw(payable(owner), winOutcome);
+        }
         if (poolFeeAmount > 0) {
             withdraw(payable(msg.sender), poolFeeAmount);
         }
@@ -381,10 +415,9 @@ contract BettingPool {
             address _affiliate = affiliateSC.getAffiliateOf(_addr);
             if (userBet[_addr] > 0 && _affiliate != address(0)) {
                 affiliates.push(_affiliate);
-                uint256 award =
-                    userBet[_addr].mul(poolManager.getAffiliatePercent()).div(
-                        10000
-                    );
+                uint256 award = userBet[_addr]
+                .mul(poolManager.getAffiliatePercent())
+                .div(10000);
                 awards.push(award);
                 awardTotal = awardTotal.add(award);
             }

@@ -15,7 +15,7 @@ contract TestFaucet is Initializable {
 
     function initialize() public initializer {
         owner = msg.sender;
-        oracle = Oracle(0xea451D9038e91BdeBc5484B33ba8096EcE07D182);
+        oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
     }
 
     receive() external payable {}
@@ -34,8 +34,9 @@ contract TestFaucet is Initializable {
     }
 
     function withdrawUsdt() external onlyOwner {
-        uint256 balance =
-            IERC20(oracle.getUsdtAddress()).balanceOf(address(this));
+        uint256 balance = IERC20(oracle.getUsdtAddress()).balanceOf(
+            address(this)
+        );
         IERC20(oracle.getUsdtAddress()).transfer(msg.sender, balance);
     }
 

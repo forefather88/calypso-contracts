@@ -40,7 +40,7 @@ contract Staking is Initializable {
     function initialize() public initializer {
         owner = msg.sender;
         accounts.push(address(0));
-        oracle = Oracle(0xea451D9038e91BdeBc5484B33ba8096EcE07D182);
+        oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
     }
 
     function stake(uint256 _amount) external {
@@ -68,8 +68,9 @@ contract Staking is Initializable {
         );
         if (total > 0) {
             for (uint256 i = 1; i < accounts.length; i++) {
-                uint256 stakeShare =
-                    _amount.mul(stakeAmount[accounts[i]]).div(total);
+                uint256 stakeShare = _amount.mul(stakeAmount[accounts[i]]).div(
+                    total
+                );
                 stakeIncome[accounts[i]] = stakeIncome[accounts[i]].add(
                     stakeShare
                 );
@@ -79,8 +80,9 @@ contract Staking is Initializable {
 
     function claimTokens() external {
         require(stakeAmount[msg.sender] > 0);
-        uint256 totalIncome =
-            stakeAmount[msg.sender].add(stakeIncome[msg.sender]);
+        uint256 totalIncome = stakeAmount[msg.sender].add(
+            stakeIncome[msg.sender]
+        );
         total = total.sub(stakeAmount[msg.sender]);
         stakeAmount[msg.sender] = 0;
         stakeIncome[msg.sender] = 0;
@@ -102,9 +104,9 @@ contract Staking is Initializable {
         Cal.transfer(msg.sender, balance);
     }
 
-    function getAccountIndex(address _address) external view returns(uint256){
+    function getAccountIndex(address _address) external view returns (uint256) {
         return accountIndex[_address];
-    } 
+    }
 
     // Remove in future
     function changeOracle(address _newAddress) external onlyOwner {

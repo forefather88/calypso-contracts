@@ -23,7 +23,7 @@ contract PoolManager is Initializable {
 
     function initialize() public initializer {
         owner = msg.sender;
-        oracle = Oracle(0xCaEE4A7E30a4780530266138e8facF292FC5353b);
+        oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
     }
 
     modifier onlyOwner() {
@@ -45,20 +45,19 @@ contract PoolManager is Initializable {
     ) external returns (address) {
         require(_endDate > block.timestamp, "End date should be in future");
         require(_depositedCal > 0, "Max cap should larger than 0");
-        BettingPool pool =
-            new BettingPool(
-                msg.sender,
-                _title,
-                _description,
-                _gameId,
-                _gameType,
-                _endDate,
-                _currency,
-                _poolFee,
-                _depositedCal,
-                _whitelist,
-                _minBet
-            );
+        BettingPool pool = new BettingPool(
+            msg.sender,
+            _title,
+            _description,
+            _gameId,
+            _gameType,
+            _endDate,
+            _currency,
+            _poolFee,
+            _depositedCal,
+            _whitelist,
+            _minBet
+        );
         require(
             IERC20(oracle.getCalAddress()).transferFrom(
                 msg.sender,

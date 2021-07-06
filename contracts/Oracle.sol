@@ -94,7 +94,7 @@ contract Oracle is Initializable {
         cal = 0xec0A5D38c5C65Ee775d28aBf412ea2C5ffa76728;
         usdt = 0x679D993290D209a2Ccb6cd9F5a42A6302c41B1Ea;
         operator = 0xaeC9bB50Aff0158e86Bfdc1728C540D59edD71AD;
-        ref = AggregatorInterface(0x9326BFA02ADD2366b30bacB125260Af641031331);
+        ref = AggregatorInterface(0x8A753747A1Fa494EC906cE90E9f37563A8AF630e);
 
         staking = 0x07ceDAE01C088b60F12879eAd6726655B6b6759E;
         escrow = 0x8b283930dFe61888EEdadE68cb01938d16216884;
@@ -134,18 +134,17 @@ contract Oracle is Initializable {
         } else {
             price = getTokenPrice(_currency);
         }
-        int128 calNum =
-            ABDKMath64x64.fromUInt(_depositedCal.div(10**13)).div(
-                ABDKMath64x64.fromUInt(10**5)
-            );
+        int128 calNum = ABDKMath64x64.fromUInt(_depositedCal.div(10**13)).div(
+            ABDKMath64x64.fromUInt(10**5)
+        );
         int128 x = rateK.mul(calNum.sub(inflectionPoint));
         int128 exponent = ABDKMath64x64.exp(x);
         int128 max = upperLimit.div(ABDKMath64x64.fromUInt(1).add(exponent));
         // Convert to uint256 and round up to thoundsand number
-        uint256 maxInUSD =
-            uint256(ABDKMath64x64.toUInt(max)).add(500).div(1000).mul(
-                1000 * 10**18
-            );
+        uint256 maxInUSD = uint256(ABDKMath64x64.toUInt(max))
+        .add(500)
+        .div(1000)
+        .mul(1000 * 10**18);
         _maxCap = maxInUSD.mul(10**8).div(price);
     }
 

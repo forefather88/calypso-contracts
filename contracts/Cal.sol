@@ -20,6 +20,7 @@ contract Cal is IERC20, Initializable {
 
     //--- Variables ---------------//
     uint256 private _totalsupply;
+    uint256 private _currentsupply;
     bool public transferrable;
 
     mapping(address => uint256) private balances;
@@ -36,7 +37,8 @@ contract Cal is IERC20, Initializable {
     function initialize() public initializer {
         owner = msg.sender;
         _totalsupply = 100000000 ether;
-        balances[owner] = _totalsupply;
+        _currentsupply = 100000 ether;
+        balances[owner] = _currentsupply;
         transferrable = true;
     }
 
@@ -52,6 +54,10 @@ contract Cal is IERC20, Initializable {
 
     function totalSupply() public view override returns (uint256) {
         return _totalsupply;
+    }
+
+    function currentSupply() public view returns (uint256) {
+        return _currentsupply;
     }
 
     function lockStatusOf(address investor) public view returns (bool) {
@@ -145,8 +151,12 @@ contract Cal is IERC20, Initializable {
     ) internal {
         require(_receiver != address(0), "Address can not be 0x0");
         require(_value > 0, "Value should larger than 0");
+        require(
+            _currentsupply.add(_value) <= _totalsupply,
+            "Current supply cannot exceed the total supply"
+        );
         balances[_receiver] = balances[_receiver].add(_value);
-        _totalsupply = _totalsupply.add(_value);
+        _currentsupply = _currentsupply.add(_value);
         emit Mint(_from, _receiver, _value);
         emit Transfer(address(0), _receiver, _value);
     }
@@ -193,7 +203,7 @@ contract Cal is IERC20, Initializable {
             "Balance does not have enough tokens"
         );
         balances[msg.sender] = (balances[msg.sender]).sub(_value);
-        _totalsupply = _totalsupply.sub(_value);
+        _currentsupply = _currentsupply.sub(_value);
         emit Burn(msg.sender, _value);
         return true;
     }
