@@ -16,3 +16,10 @@ Deploying and upgrading:
 5. If you are deploying an SC, uncomment Deploy section in a migration file and comment Upgrade section. If you are upgrading - do the opposite;
 6. Make sure that the build folder is deleted, for some reason it won't work if the folder exists. SC's will be re-compiled in any case;
 7. Run "npx truffle migrate --network kovan" command in a terminal. After after upgrading the contract it's address won't be changed!
+
+After deploying please follow these instructions:
+1. After deploying Oracle change CAL, USDT, Operator and link aggregator addresses
+2. Change Oracle address and deploy CalSwap, poolManager, testFaucet, staking, escrow, affiliate
+3. Change Escrow, staking, affiliate address in Oracle
+4. Send CAL to CalSwap, Escrow
+5. Send USDT to testFaucet
