@@ -97,7 +97,6 @@ contract Oracle is Initializable {
         ref = AggregatorInterface(0x8A753747A1Fa494EC906cE90E9f37563A8AF630e);
 
         staking = 0x07ceDAE01C088b60F12879eAd6726655B6b6759E;
-        escrow = 0x8b283930dFe61888EEdadE68cb01938d16216884;
         affiliate = 0x3143aCDC37C8F3028C3feA288ea87C61411a4d28;
 
         supportCurrencies = [cal, usdt];
@@ -207,10 +206,6 @@ contract Oracle is Initializable {
         return staking;
     }
 
-    function getEscrowAddress() external view returns (address) {
-        return escrow;
-    }
-
     function getOperatorAddress() external view returns (address) {
         return operator;
     }
@@ -252,11 +247,6 @@ contract Oracle is Initializable {
     function changeStakingAddress(address _newAddress) external onlyOwner {
         require(_newAddress != address(0));
         staking = _newAddress;
-    }
-
-    function changeEscrowAddress(address _newAddress) external onlyOwner {
-        require(_newAddress != address(0));
-        escrow = _newAddress;
     }
 
     function changeOperatorAddress(address _newAddress) external onlyOwner {

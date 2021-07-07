@@ -130,10 +130,6 @@ contract PoolManager is Initializable {
         return oracle.getPlatformFee();
     }
 
-    function getFeeReceiver() external view returns (address) {
-        return oracle.getEscrowAddress();
-    }
-
     function getAffiliateAddress() external view returns (address) {
         return oracle.getAffiliateAddress();
     }

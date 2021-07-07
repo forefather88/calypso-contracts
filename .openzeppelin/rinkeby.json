@@ -49,6 +49,21 @@
       "address": "0x482C1206a89F5B3a20e49318185F3fc6a7444842",
       "txHash": "0x3778923d9799f33bb7ec87944edadaa009fdea37d6cd58daa2d650deb8b3f8ff",
       "kind": "transparent"
+    },
+    {
+      "address": "0xdCaDd2343A51C6b1278bB93dF28878819Add3dcd",
+      "txHash": "0x1152f10ddc726058365d13623c5926c672d4cde9568efce0c2518004dc497078",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x90296E51C809CE9ccf9E84cFBB4Da100ce1a5e71",
+      "txHash": "0x9d125ca735ce8420c45154732211d2ed56005fb092bbd26dce2c6ed33c9cf38e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x7ECbCA800c103688eFa03b60553AA6489a225643",
+      "txHash": "0x1883a595aef8d499d764d59aac243c8fa98c89d419c7b102eedcfb245c490113",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -1730,6 +1745,464 @@
           },
           "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
             "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "1e355bc9793533fa4c5ba5ba396d09ce4a4e897d43492e36c96ec7480c2e179a": {
+      "address": "0x62E7e3b851CB7ee3f2dd91bbaf4B9a87C12dDe93",
+      "txHash": "0xf9781db58190c1d7ad5fe26c5c5fab399227b796fb778324eb8f833935e85260",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4621",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4621": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "08b7e81dae14b2eaca0ccf0eedebf6e6f31c412fe2f4512f892b8ca2e7243163": {
+      "address": "0x051A999537Ae86Ea666b10A3102561270E02cEBb",
+      "txHash": "0x8414b9e91aa62cd73bdf2b75bfc7b4ab0e41e483205bc62b36e415f5cfd2ef6a",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Staking",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:12"
+          },
+          {
+            "contract": "Staking",
+            "label": "accounts",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:13"
+          },
+          {
+            "contract": "Staking",
+            "label": "total",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:14"
+          },
+          {
+            "contract": "Staking",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4621",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:15"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeAmount",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:17"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncome",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:20"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncomeUsdt",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:23"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncomeEth",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:26"
+          },
+          {
+            "contract": "Staking",
+            "label": "accountIndex",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:28"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(Oracle)4621": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "92c68177c3c16caf8f94a1880c6e67266ac948f7ec817ae966c377b90d0a8163": {
+      "address": "0x9cb14036f5C77f3805893F0aD7b9666770973d24",
+      "txHash": "0xb38fed3e06ad176cb69e9763eb248b65f102b4837c53e9c0e090004ff7339708",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Staking",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:12"
+          },
+          {
+            "contract": "Staking",
+            "label": "accounts",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:13"
+          },
+          {
+            "contract": "Staking",
+            "label": "total",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:14"
+          },
+          {
+            "contract": "Staking",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4472",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:15"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeAmount",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:17"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncome",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:20"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncomeUsdt",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:23"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncomeEth",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:26"
+          },
+          {
+            "contract": "Staking",
+            "label": "accountIndex",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:28"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(Oracle)4472": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "614388165c57dae4b7e8ec0f635885b7f6c4dcea7b72a8adc8ad71bb19a9a1d4": {
+      "address": "0x57a458317743EfB4320c1ef2acdD04bB77c4D203",
+      "txHash": "0x82fd9a61d1d45e0737286cceeee72421e0b68a3f569ae817342c6c136503fcd4",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4472",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4472": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "38c49c14a06a457737566e221752f16408bf849832e6cce6c890d133bc16d886": {
+      "address": "0x4cdbC8A880CD018b2C2EF0b21400b3A1c48C635b",
+      "txHash": "0x10573536a2f7dab1122684569968ec67bdff0c0457d1c50560b56805b4cfa033",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "Staking",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:12"
+          },
+          {
+            "contract": "Staking",
+            "label": "accounts",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:13"
+          },
+          {
+            "contract": "Staking",
+            "label": "total",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:14"
+          },
+          {
+            "contract": "Staking",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4472",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:15"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeAmount",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:17"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncome",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:20"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncomeUsdt",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:23"
+          },
+          {
+            "contract": "Staking",
+            "label": "stakeIncomeEth",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:26"
+          },
+          {
+            "contract": "Staking",
+            "label": "accountIndex",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:28"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(Oracle)4472": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
           },
           "t_bool": {
             "label": "bool"

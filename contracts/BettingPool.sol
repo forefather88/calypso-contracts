@@ -5,8 +5,9 @@ import "./OpenZeppelin/SafeMath.sol";
 import "./OpenZeppelin/IERC20.sol";
 import "./Bet.sol";
 import "./PoolManager.sol";
-import "./Escrow.sol";
+import "./Staking.sol";
 import "./Affiliate.sol";
+import "./Oracle.sol";
 
 contract BettingPool {
     using SafeMath for uint256;
@@ -56,6 +57,8 @@ contract BettingPool {
     bool claimedDepositAndFee;
     bool claimedPlatformFee;
 
+    Oracle public oracle;
+
     constructor(
         address _owner,
         string memory _title,
@@ -83,6 +86,7 @@ contract BettingPool {
         poolManager = PoolManager(msg.sender);
         depositedCal = _depositedCal;
         maxCap = poolManager.getMaxCap(_depositedCal, _currency);
+        oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
         if (_whitelist.length > 0) {
             isPrivate = true;
             for (uint256 i = 0; i < _whitelist.length; i++) {
@@ -323,15 +327,6 @@ contract BettingPool {
         return true;
     }
 
-    /*uint256 lostTotal = total - winTotal;
-                poolFeeAmount = lostTotal.mul(poolFee).div(10000);
-                platformFeeAmount = lostTotal
-                .mul(poolManager.getPlatformFee())
-                .div(10000);
-                winOutcome = lostTotal.sub(poolFeeAmount).sub(
-                    platformFeeAmount
-                ); */
-
     function claimReward() external returns (bool) {
         require(!claimedUser[msg.sender], "You already claimed");
         uint256 amount;
@@ -393,15 +388,13 @@ contract BettingPool {
         require(platformFeeAmount > 0);
         require(!claimedPlatformFee);
         claimedPlatformFee = true;
-        address escrowAddress = poolManager.getFeeReceiver();
-        Escrow escrow = Escrow(escrowAddress);
-
+        address stakingAddress = oracle.getStakingAddress();
         if (currency == address(0)) {
-            escrow.escrowEth{value: platformFeeAmount}();
+            Staking(stakingAddress).shareIncomeEth{value: platformFeeAmount}();
         } else {
             IERC20 token = IERC20(currency);
-            token.approve(escrowAddress, platformFeeAmount);
-            escrow.escrowToken(currency, platformFeeAmount);
+            token.approve(stakingAddress, platformFeeAmount);
+            Staking(stakingAddress).shareIncome(currency, platformFeeAmount);
         }
     }
 
@@ -458,5 +451,9 @@ contract BettingPool {
 
     function testforwardAffiliateAward() external onlyHasResult {
         forwardAffiliateAward();
+    }
+
+    function changeOracle(address _newAddress) external onlyOwner {
+        oracle = Oracle(_newAddress);
     }
 }

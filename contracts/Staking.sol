@@ -15,7 +15,16 @@ contract Staking is Initializable {
     Oracle public oracle;
 
     mapping(address => uint256) public stakeAmount;
+
+    //CAL staking
     mapping(address => uint256) public stakeIncome;
+
+    //USDT staking
+    mapping(address => uint256) public stakeIncomeUsdt;
+
+    //ETH staking
+    mapping(address => uint256) public stakeIncomeEth;
+
     mapping(address => uint256) public accountIndex;
 
     modifier onlyOwner() {
@@ -29,12 +38,16 @@ contract Staking is Initializable {
         returns (
             uint256 _total,
             uint256 _stakeAmount,
-            uint256 _stakeIncome
+            uint256 _stakeIncome,
+            uint256 _stakeIncomeUsdt,
+            uint256 _stakeIncomeEth
         )
     {
         _total = total;
         _stakeAmount = stakeAmount[_address];
         _stakeIncome = stakeIncome[_address];
+        _stakeIncomeUsdt = stakeIncomeUsdt[_address];
+        _stakeIncomeEth = stakeIncomeEth[_address];
     }
 
     function initialize() public initializer {
@@ -60,18 +73,33 @@ contract Staking is Initializable {
         }
     }
 
-    function shareIncome(uint256 _amount) external {
-        IERC20(oracle.getCalAddress()).transferFrom(
-            msg.sender,
-            address(this),
-            _amount
-        );
+    function shareIncome(address _tokenAddress, uint256 _amount) external {
+        IERC20(_tokenAddress).transferFrom(msg.sender, address(this), _amount);
         if (total > 0) {
             for (uint256 i = 1; i < accounts.length; i++) {
                 uint256 stakeShare = _amount.mul(stakeAmount[accounts[i]]).div(
                     total
                 );
-                stakeIncome[accounts[i]] = stakeIncome[accounts[i]].add(
+                if (_tokenAddress == oracle.getCalAddress()) {
+                    stakeIncome[accounts[i]] = stakeIncome[accounts[i]].add(
+                        stakeShare
+                    );
+                } else if (_tokenAddress == oracle.getUsdtAddress()) {
+                    stakeIncomeUsdt[accounts[i]] = stakeIncomeUsdt[accounts[i]]
+                    .add(stakeShare);
+                }
+            }
+        }
+    }
+
+    function shareIncomeEth() external payable {
+        uint256 _amount = msg.value;
+        if (total > 0) {
+            for (uint256 i = 1; i < accounts.length; i++) {
+                uint256 stakeShare = _amount.mul(stakeAmount[accounts[i]]).div(
+                    total
+                );
+                stakeIncomeEth[accounts[i]] = stakeIncomeEth[accounts[i]].add(
                     stakeShare
                 );
             }
@@ -83,9 +111,13 @@ contract Staking is Initializable {
         uint256 totalIncome = stakeAmount[msg.sender].add(
             stakeIncome[msg.sender]
         );
+        uint256 totalIncomeUsdt = stakeIncomeUsdt[msg.sender];
+        uint256 totalIncomeEth = stakeIncomeEth[msg.sender];
         total = total.sub(stakeAmount[msg.sender]);
         stakeAmount[msg.sender] = 0;
         stakeIncome[msg.sender] = 0;
+        stakeIncomeUsdt[msg.sender] = 0;
+        stakeIncomeEth[msg.sender] = 0;
         uint256 index = accountIndex[msg.sender];
         if (accounts.length > 2) {
             delete accounts[index];
@@ -96,12 +128,24 @@ contract Staking is Initializable {
         }
 
         IERC20(oracle.getCalAddress()).transfer(msg.sender, totalIncome);
+        IERC20(oracle.getUsdtAddress()).transfer(msg.sender, totalIncomeUsdt);
+        payable(msg.sender).transfer(totalIncomeEth);
     }
 
     function withdrawCal() external onlyOwner {
         IERC20 Cal = IERC20(oracle.getCalAddress());
         uint256 balance = Cal.balanceOf(address(this));
         Cal.transfer(msg.sender, balance);
+    }
+
+    function withdrawUsdt() external onlyOwner {
+        IERC20 Usdt = IERC20(oracle.getUsdtAddress());
+        uint256 balance = Usdt.balanceOf(address(this));
+        Usdt.transfer(msg.sender, balance);
+    }
+
+    function withdrawEth() external onlyOwner {
+        payable(msg.sender).transfer(address(this).balance);
     }
 
     function getAccountIndex(address _address) external view returns (uint256) {
