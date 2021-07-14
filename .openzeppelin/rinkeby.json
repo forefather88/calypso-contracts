@@ -64,6 +64,16 @@
       "address": "0x7ECbCA800c103688eFa03b60553AA6489a225643",
       "txHash": "0x1883a595aef8d499d764d59aac243c8fa98c89d419c7b102eedcfb245c490113",
       "kind": "transparent"
+    },
+    {
+      "address": "0xf7DD67fAC9523De4c23876f3b81d11056b85345f",
+      "txHash": "0x362ee891b90d8c2c09deb74fb15cfcbf5472fa2dea9d7b3c2ce8e63a617d9aee",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xD7E9e35a8FaBE40a5afBE6Fab71381B5BC57c42b",
+      "txHash": "0x13cde5d60651cc6eff0635915cb15ec9b8e6225878fc938a5d6978137a6f774e",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -2154,7 +2164,7 @@
           {
             "contract": "Staking",
             "label": "oracle",
-            "type": "t_contract(Oracle)4472",
+            "type": "t_contract(Oracle)4467",
             "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Staking.sol:15"
           },
           {
@@ -2198,11 +2208,1771 @@
           "t_uint256": {
             "label": "uint256"
           },
-          "t_contract(Oracle)4472": {
+          "t_contract(Oracle)4467": {
             "label": "contract Oracle"
           },
           "t_mapping(t_address,t_uint256)": {
             "label": "mapping(address => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "869d96bb6ddbaee9050b8287b74f985b7cb6660e79f19205c8ec019cb13915ee": {
+      "address": "0xb4367CE15BD64e9b83de447DF7d741C5087604B2",
+      "txHash": "0xc2f1994271aa40125c90b27ef7e8903a95c3fe238b9f9c0a29768743b28a2a99",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4456",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4456": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "bd7493e5e993e9135998d0c8f51230372fc68b12a1468d18e9dab48087c97b07": {
+      "address": "0xa17a097fA6014b30901e91bFADC74578Fe9568a0",
+      "txHash": "0x7ee531cadd170d2d9b4d524e60efbc1e61121552c38f67ce71323f487dd50c4c",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4463",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4463": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "9b5849eab8d9573c2b7a0f4ecebb2c0e32b41b077b2a5efa09b57a800f135d72": {
+      "address": "0x0e68020304F7Db4e2c7b6e61D1B7ce47c9d69F6c",
+      "txHash": "0x66d14325de979f5ff10c039f7c0dd1b3c1e001d43a38ee00a382f0fe73f6de1a",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4458",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4458": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "264d9ac19cc848d1ea7dc00e4b6b26d6294a36bcbb702f4898309ccd4e89d404": {
+      "address": "0x9d44C885AD75cbCbEcb6fb0DfB8Ee03115Bd591D",
+      "txHash": "0xa0f7eae29c0a6654ab50d68077eb25c624fb5fffb67d84a7618b9d9fa5bf19e3",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4455",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4455": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "05c7601c365f96590b0032783d587db3f33d0e9c7b09983dd6db2b1cec682df8": {
+      "address": "0x018c699f3B3449ceDe626c41A6D1A276EA95CfDe",
+      "txHash": "0xd9c5a542b38bc3fb537638d21f7de07a8bcd3c0055b52f8fadb30f134faf73bd",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4456",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4456": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "9e8a2c16cdd79db8fa61dcd6b15d7acf71ece9bbcb1eba1ad75871a8aa18339d": {
+      "address": "0xDC055B614f68f5074E303428582d55b5fdB2b48c",
+      "txHash": "0xfacd0cb873e55c069bf6354063b74b04665f25352d0a0f5bfd4a570349131c5a",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4457",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4457": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "3a91d76eb54c25205e835ae19accaca2c62fcae0f318d7028c49823d5b503f3e": {
+      "address": "0x882997A986b053F22B42DFbA20b0414a7Ad90e62",
+      "txHash": "0xe5a42a4776b9bfb5d4d68532d55d45d89d3fee3e4fcea6e096fdf20eaea71099",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4467",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4467": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "88dc12850a0e3c18ec172f1e8c9e5aec8561e38df185593504847f6c884a246b": {
+      "address": "0x413899A65157AE176932FCE7b1501f01B2bb869d",
+      "txHash": "0x01066d2334368a1da877635fc55e0e45bf92aa39a8703f21b57476886ebdf54d",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4449",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4449": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "e68554f3f5e77087c788431519b51035c48063316a7210f9743f7ef1e2d1cb6b": {
+      "address": "0x312c92575ee0B2dB1D94d65d0A8726b12ee9f848",
+      "txHash": "0x2a71b29dddd33dc1d3dd174cc9c05e49a0aaa8b1bd1a4bd2ed96d66089176944",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4449",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4449": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "b3dcf46bd3a30a83445d2e07d5f860848c712fa7a74f2d4a72bef31748b2a5af": {
+      "address": "0x1B6Ebe6ec63d17aC478e8066EbeBd3131d019a85",
+      "txHash": "0xda77876a4841ecc2658cc4da9024d6f8cce755dfd20c80b9acc30cf3bab672e3",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4449",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4449": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "dfcdc72aff1fb9285c5f57b84805827799c18edd928c487e3adfd1224eb6fc8d": {
+      "address": "0xf7e2935175FB10BCe451a7de4fd9e307B2E1ce27",
+      "txHash": "0x53c51ad225f30686d9280bb288ab396be175bc0743c8fd5e9d6ad4f5094b113f",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4449",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4449": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "184a5fd3a415fe7a439b5cbad60873c4e14b849dfaec6fc796ba0d30094458d6": {
+      "address": "0x6cf5BE48BA39cA8251945E7e0271808384760633",
+      "txHash": "0xbc693d4587bab717a73569cdeedded77b4321d6ab44ebf4203ce5e061c05d4ef",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4449",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4449": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "d45058a5408c10cf73cd9f37fc76b8ff7a344eac21359e4fd203389b1790171e": {
+      "address": "0xeCccBFbf29E61DC4D28ffc5d30f16c2d20cAa5F0",
+      "txHash": "0x86ba1181ba98402157acb27e2c0464d5dd5a3f91733485023bc317e166a8b468",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4449",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4449": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "26873d99ff23a1900e929855544e25cf11978eb9eba768057d890fb87771a6c6": {
+      "address": "0xe1BB81256aABaC17DF2FCac4bE57B05bDbF04E0B",
+      "txHash": "0xa499aae1801a0b2efa19722d267ed616616718a03b1b7fd382b4a4dab74337e1",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4449",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4449": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "0e7e0d589ce0202e96789eea30ba1ba05008bce267ca827b8c5669b5b390ecfd": {
+      "address": "0x9177064347ef3980089E8c25D1eC49B6e4a1DdA4",
+      "txHash": "0xc48920f5b7d102130b8eaa0770a198eeee1c213c3f6d904b44c3cc578c20e267",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4454",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4454": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "5b4d5be1341492787be7bddad4eb6c7c2f176ff69c96cbf14d333806bc4423c9": {
+      "address": "0x5b0032A92EC779352a8Da50183D6796526cfC4Fc",
+      "txHash": "0xcf8a1256903d4f253183bf751e6f291a9e7188b446f843328d2e976f9aacd983",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:24"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:25"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4454",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:26"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:28"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:29"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4454": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "226af81dd25eb0c362c63a0a496cc87a8a493f9e4ea981c5ae5fea8ca53405b0": {
+      "address": "0x234bAa15622e8311ed3fa7Fa40900346ec675D0F",
+      "txHash": "0x1b647e37333c4e1858420f93614a4ec891bbf3e56c7862dcf7bef33bb17eb1e5",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:16"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4461",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:20"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:21"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4461": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "0ba39463df35ed37631809e865c5d35ccfcd77f74033cd98168960a51fdf1317": {
+      "address": "0xca1AF803a3760C94A829611143F16BD66f00f08a",
+      "txHash": "0x721aa84a8787354593668e6cd170616a77dc00f44b818fb1493e79fb299d2c7e",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:16"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4483",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:20"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:21"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4483": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "62b6d09f41c547bd3ddb8e4b1d2b82eee44dbc590cf293e323bcef6a181b642a": {
+      "address": "0xD028A422C0401316690AA8c4F34F3df175Fb81A7",
+      "txHash": "0x3f5072217cd1408c5332d39f31a1f8238d822dfb25adf2aaa229431a8f25aa8e",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:16"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4485",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:20"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:21"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4485": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "27f2daf51f7784fa02642645958a7c8877d2b007aa8bad5b12b559c833335ebf": {
+      "address": "0x7eA6d2b1176B985F78616F4CBffb9C331a04e80A",
+      "txHash": "0x49bea98fbf9b7b11632604ca7ca43e29aad87aada2e2cee6f2c2907a98ead633",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:16"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)4514",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:20"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:21"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)4514": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
           },
           "t_bool": {
             "label": "bool"

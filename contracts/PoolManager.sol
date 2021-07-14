@@ -7,6 +7,8 @@ import "./Oracle.sol";
 import "./OpenZeppelin/IERC20.sol";
 import "./OpenZeppelin/Initializable.sol";
 
+
+
 contract PoolManager is Initializable {
     using SafeMath for uint256;
 
@@ -38,31 +40,39 @@ contract PoolManager is Initializable {
         string memory _gameType,
         uint256 _endDate,
         address _currency,
-        uint256 _poolFee,
-        uint256 _depositedCal,
-        uint256 _minBet,
-        address[] memory _whitelist
+        //uint256 _poolFee, = _currencyDetails[0]
+        //uint256 _depositedCal, = _currencyDetails[1]
+        //uint256 _minBet, = _currencyDetails[2]
+        uint256[] memory _currencyDetails,
+        address[] memory _whitelist,
+        //uint8 _handicapResult, =_handicap[0]
+        //uint8 _handicapValue =_handicap[1]
+        uint8[] memory _handicap
     ) external returns (address) {
+        require(
+            _currencyDetails[0] <= 9500,
+            "Pool Fee should not be bigger then 95%"
+        );
         require(_endDate > block.timestamp, "End date should be in future");
-        require(_depositedCal > 0, "Max cap should larger than 0");
+        require(_currencyDetails[1] > 0, "Max cap should larger than 0");
+        require(_handicap[0] < 3, "Handicap Result should be lesser than 3");
         BettingPool pool = new BettingPool(
             msg.sender,
             _title,
             _description,
-            _gameId,
-            _gameType,
+            _gameId, 
+            _gameType, 
             _endDate,
             _currency,
-            _poolFee,
-            _depositedCal,
+            _currencyDetails,
             _whitelist,
-            _minBet
+           _handicap
         );
         require(
             IERC20(oracle.getCalAddress()).transferFrom(
                 msg.sender,
                 address(pool),
-                _depositedCal
+                _currencyDetails[1]
             ),
             "Unable to deposit CAL"
         );

@@ -8,7 +8,16 @@ import "./PoolManager.sol";
 import "./Staking.sol";
 import "./Affiliate.sol";
 import "./Oracle.sol";
+struct Handicap {
+    uint8 result;
+    uint32 value;
+}
 
+struct Game {
+    uint256 gameId;
+    string gameType; //epl, lol, dota 2, pubg
+    uint256 endDate;
+}
 contract BettingPool {
     using SafeMath for uint256;
 
@@ -18,12 +27,10 @@ contract BettingPool {
     address public owner;
     string public title;
     string public description;
-    uint256 public gameId;
-    string public gameType; //epl, lol, dota 2, pubg
+    Game public game;
     uint256 public depositedCal;
     uint256 public maxCap;
     uint256 public poolFee; // * 10000
-    uint256 public endDate;
     uint256 public createdDate;
     address public currency;
     PoolManager public poolManager;
@@ -31,6 +38,7 @@ contract BettingPool {
     address[] public whitelist;
     mapping(address => uint256) whitelistIndexes;
     uint256 public minBet;
+    Handicap public handicap;
 
     // Progress
     uint256 public total;
@@ -63,29 +71,28 @@ contract BettingPool {
         address _owner,
         string memory _title,
         string memory _description,
-        uint256 _gameId,
+         uint256 _gameId,
         string memory _gameType,
         uint256 _endDate,
         address _currency,
-        uint256 _poolFee,
-        uint256 _depositedCal,
+        uint256[] memory _currencyDetails,
         address[] memory _whitelist,
-        uint256 _minBet
+         uint8[] memory _handicap
     ) {
         owner = _owner;
         title = _title;
         description = _description;
-        gameId = _gameId;
-        gameType = _gameType;
-        endDate = _endDate;
+        game = Game(_gameId,_gameType,_endDate);
         currency = _currency;
-        poolFee = _poolFee;
+        poolFee = _currencyDetails[0];
         createdDate = block.timestamp;
         result = 0;
-        minBet = _minBet;
+        minBet = _currencyDetails[2];
+        handicap.result = _handicap[0];
+        handicap.value = _handicap[1];
         poolManager = PoolManager(msg.sender);
-        depositedCal = _depositedCal;
-        maxCap = poolManager.getMaxCap(_depositedCal, _currency);
+        depositedCal = _currencyDetails[1];
+        maxCap = poolManager.getMaxCap(_currencyDetails[1], _currency);
         oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
         if (_whitelist.length > 0) {
             isPrivate = true;
@@ -103,7 +110,7 @@ contract BettingPool {
     }
 
     modifier onlyEndDate() {
-        require(block.timestamp >= endDate, "End date is not reached");
+        require(block.timestamp >= game.endDate, "End date is not reached");
         _;
     }
 
@@ -113,7 +120,7 @@ contract BettingPool {
     }
 
     modifier onlyBeforeEndDate() {
-        require(block.timestamp < endDate, "Only before End date");
+        require(block.timestamp < game.endDate, "Only before End date");
         _;
     }
 
@@ -139,9 +146,7 @@ contract BettingPool {
         returns (
             string memory _title,
             string memory _description,
-            uint256 _gameId,
-            string memory _gameType,
-            uint256 _endDate,
+            Game memory _game,
             address _currency,
             uint256 _poolFee,
             uint256 _depositedCal,
@@ -152,9 +157,7 @@ contract BettingPool {
     {
         _title = title;
         _description = description;
-        _gameId = gameId;
-        _gameType = gameType;
-        _endDate = endDate;
+        _game = game;
         _currency = currency;
         _poolFee = poolFee;
         _maxCap = maxCap;
@@ -176,7 +179,8 @@ contract BettingPool {
             uint256 _createdDate,
             address[] memory _whitelist,
             bool _claimedDepositAndFee,
-            uint256 _minBet
+            uint256 _minBet,
+            Handicap memory _handicap
         )
     {
         _result = result;
@@ -189,6 +193,7 @@ contract BettingPool {
         _whitelist = whitelist;
         _claimedDepositAndFee = claimedDepositAndFee;
         _minBet = minBet;
+        _handicap = handicap;
     }
 
     function getUserInfo()
@@ -294,10 +299,17 @@ contract BettingPool {
         whitelistIndexes[_oldAddress] = 0;
     }
 
-    function setResult(uint8 _sideWin) external onlyEndDate returns (bool) {
+    function setResult(uint8 _sideWin, uint8 _winResult) external onlyEndDate returns (bool) {
         require(poolManager.getOperatorAddress() == msg.sender);
         require(_sideWin > 0);
-        result = _sideWin;
+        if (_sideWin == handicap.result && _winResult>=handicap.value
+            || _sideWin !=handicap.result
+            || _sideWin==3) {
+            result = _sideWin;
+        } 
+        else {
+            result = 3-_sideWin;
+        }
         if (total > 0) {
             winTotal = sideTotals[result];
             // If there are no winners in the pool the pool creator gets all the bets
@@ -321,8 +333,8 @@ contract BettingPool {
             }
             if (platformFeeAmount > 0) {
                 forwardPlatformFee();
-            }
             forwardAffiliateAward();
+            }
         }
         return true;
     }
@@ -331,17 +343,15 @@ contract BettingPool {
         require(!claimedUser[msg.sender], "You already claimed");
         uint256 amount;
         if (
-            (block.timestamp - endDate > WAIT_TIME_FOR_RESULT && result == 0) ||
-            winOutcome == total
+            (block.timestamp - game.endDate > WAIT_TIME_FOR_RESULT &&
+                result == 0) || winOutcome == total
         ) {
             // can withdraw after 5 hours or we have only winners in a pool
             amount = userBet[msg.sender];
         } else {
             require(result != 0);
             uint256 winShare = userSideBet[msg.sender][result];
-            uint256 preAmount = winTotal != 0
-                ? winOutcome.mul(winShare).div(winTotal)
-                : 0;
+            uint256 preAmount = winTotal != 0 ? getWinAmount(winShare) : 0;
             amount = preAmount >= winShare ? preAmount : winShare;
         }
 
@@ -349,6 +359,10 @@ contract BettingPool {
         claimedUser[msg.sender] = true;
         withdraw(payable(msg.sender), amount);
         return true;
+    }
+
+    function getWinAmount(uint256 _winShare) private view returns (uint256) {
+        return winOutcome.mul(_winShare).div(winTotal);
     }
 
     function withdraw(address payable receiver, uint256 amount)
@@ -369,7 +383,7 @@ contract BettingPool {
         require(
             result != 0 ||
                 (result == 0 &&
-                    block.timestamp - endDate > WAIT_TIME_FOR_RESULT)
+                    block.timestamp - game.endDate > WAIT_TIME_FOR_RESULT)
         );
         require(!claimedDepositAndFee);
         claimedDepositAndFee = true;
@@ -403,6 +417,9 @@ contract BettingPool {
         Affiliate affiliateSC = Affiliate(affiliateAddr);
 
         uint256 awardTotal;
+
+        //       uint256 winShare = userSideBet[msg.sender][result];
+
         for (uint256 i = 0; i < betUsers.length; i++) {
             address _addr = betUsers[i];
             address _affiliate = affiliateSC.getAffiliateOf(_addr);
@@ -428,7 +445,7 @@ contract BettingPool {
 
     // Remove on Production
     function changeEndDate(uint256 _newDate) external onlyOwner {
-        endDate = _newDate;
+        game.endDate = _newDate;
     }
 
     function testSetResult(uint8 _sideWin) external onlyEndDate {
