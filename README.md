@@ -20,6 +20,6 @@ Deploying and upgrading:
 After deploying please follow these instructions:
 1. After deploying Oracle change CAL, USDT, Operator and link aggregator addresses
 2. Change Oracle address and deploy CalSwap, poolManager, testFaucet, staking, escrow, affiliate
-3. Change Escrow, staking, affiliate address in Oracle
+3. Change Escrow, staking, affiliate and supportCurrencies addresses  in Oracle
 4. Send CAL to CalSwap, Escrow
 5. Send USDT to testFaucet
