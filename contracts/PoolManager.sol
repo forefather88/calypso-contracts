@@ -7,8 +7,6 @@ import "./Oracle.sol";
 import "./OpenZeppelin/IERC20.sol";
 import "./OpenZeppelin/Initializable.sol";
 
-
-
 contract PoolManager is Initializable {
     using SafeMath for uint256;
 
@@ -43,6 +41,7 @@ contract PoolManager is Initializable {
         //uint256 _poolFee, = _currencyDetails[0]
         //uint256 _depositedCal, = _currencyDetails[1]
         //uint256 _minBet, = _currencyDetails[2]
+        //uint256 _minPoolSize, = _currencyDetails[3]
         uint256[] memory _currencyDetails,
         address[] memory _whitelist,
         //uint8 _handicapResult, =_handicap[0]
@@ -60,13 +59,13 @@ contract PoolManager is Initializable {
             msg.sender,
             _title,
             _description,
-            _gameId, 
-            _gameType, 
+            _gameId,
+            _gameType,
             _endDate,
             _currency,
             _currencyDetails,
             _whitelist,
-           _handicap
+            _handicap
         );
         require(
             IERC20(oracle.getCalAddress()).transferFrom(

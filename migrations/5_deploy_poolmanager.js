@@ -2,14 +2,14 @@ const { deployProxy, upgradeProxy } = require("@openzeppelin/truffle-upgrades");
 
 const SC = artifacts.require("PoolManager");
 
-//Current proxy address: 0xd765C0068D837E8Cba446c48cC2cc05a0417b163
+//Current proxy address: 0x36D25D7eDcf669552903127403542922fAdcfDd1
 module.exports = async function (deployer) {
   //Deploy
-  /*const instance = await deployProxy(SC, [], { deployer });
+ /* const instance = await deployProxy(SC, [], { deployer });
   console.log("Deployed", instance.address);*/
 
   //Updrade
-  await upgradeProxy("0xd765C0068D837E8Cba446c48cC2cc05a0417b163", SC, {
+  await upgradeProxy("0x36D25D7eDcf669552903127403542922fAdcfDd1", SC, {
     deployer,
   });
 };

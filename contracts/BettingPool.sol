@@ -18,6 +18,7 @@ struct Game {
     string gameType; //epl, lol, dota 2, pubg
     uint256 endDate;
 }
+
 contract BettingPool {
     using SafeMath for uint256;
 
@@ -39,6 +40,7 @@ contract BettingPool {
     mapping(address => uint256) whitelistIndexes;
     uint256 public minBet;
     Handicap public handicap;
+    uint256 public minPoolSize;
 
     // Progress
     uint256 public total;
@@ -63,7 +65,6 @@ contract BettingPool {
     mapping(address => uint256) public claimedAmount; // user -> claim amount
     mapping(address => bool) public claimedUser; // user -> claimed?
     bool claimedDepositAndFee;
-    bool claimedPlatformFee;
 
     Oracle public oracle;
 
@@ -71,18 +72,18 @@ contract BettingPool {
         address _owner,
         string memory _title,
         string memory _description,
-         uint256 _gameId,
+        uint256 _gameId,
         string memory _gameType,
         uint256 _endDate,
         address _currency,
         uint256[] memory _currencyDetails,
         address[] memory _whitelist,
-         uint8[] memory _handicap
+        uint8[] memory _handicap
     ) {
         owner = _owner;
         title = _title;
         description = _description;
-        game = Game(_gameId,_gameType,_endDate);
+        game = Game(_gameId, _gameType, _endDate);
         currency = _currency;
         poolFee = _currencyDetails[0];
         createdDate = block.timestamp;
@@ -93,6 +94,11 @@ contract BettingPool {
         poolManager = PoolManager(msg.sender);
         depositedCal = _currencyDetails[1];
         maxCap = poolManager.getMaxCap(_currencyDetails[1], _currency);
+        require(
+            _currencyDetails[3] < maxCap,
+            "Min pool size cannot be bigger than max pool size"
+        );
+        minPoolSize = _currencyDetails[3];
         oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
         if (_whitelist.length > 0) {
             isPrivate = true;
@@ -152,7 +158,8 @@ contract BettingPool {
             uint256 _depositedCal,
             uint256 _maxCap,
             address _owner,
-            bool _isPrivate
+            bool _isPrivate,
+            uint256 _minPoolSize
         )
     {
         _title = title;
@@ -164,6 +171,7 @@ contract BettingPool {
         _owner = owner;
         _isPrivate = isPrivate;
         _depositedCal = depositedCal;
+        _minPoolSize = minPoolSize;
     }
 
     function getPoolDetail2()
@@ -299,44 +307,50 @@ contract BettingPool {
         whitelistIndexes[_oldAddress] = 0;
     }
 
-    function setResult(uint8 _sideWin, uint8 _winResult) external onlyEndDate returns (bool) {
+    function setResult(uint8 _sideWin, uint8 _winResult)
+        external
+        onlyEndDate
+        returns (bool)
+    {
         require(poolManager.getOperatorAddress() == msg.sender);
         require(_sideWin > 0);
-        if (_sideWin == handicap.result && _winResult>=handicap.value
-            || _sideWin !=handicap.result
-            || _sideWin==3) {
+        if (
+            (_sideWin == handicap.result && _winResult >= handicap.value) ||
+            _sideWin != handicap.result ||
+            _sideWin == 3 ||
+            handicap.result == 0
+        ) {
             result = _sideWin;
-        } 
-        else {
-            result = 3-_sideWin;
+        } else {
+            result = 3 - _sideWin;
         }
         if (total > 0) {
             winTotal = sideTotals[result];
             // If there are no winners in the pool the pool creator gets all the bets
             if (winTotal == 0) {
-                platformFeeAmount = total.mul(poolManager.getPlatformFee()).div(
-                    10000
-                );
+                platformFeeAmount = getPlatformFeeAmount();
                 winOutcome = total.sub(platformFeeAmount);
             }
-            //If there are only winners in the pool, winners get back their bets without paying fees
-            else if (winTotal == total) {
+            //If there are only winners in the pool, winners get back their bets without paying fees or the pool is inactive
+            else if (winTotal == total || total < minPoolSize) {
                 winOutcome = total;
             }
             //Regular case, when there winners and loosers in the pool
             else {
-                platformFeeAmount = total.mul(poolManager.getPlatformFee()).div(
-                    10000
-                );
+                platformFeeAmount = getPlatformFeeAmount();
                 poolFeeAmount = total.mul(poolFee).div(10000);
                 winOutcome = total.sub(poolFeeAmount).sub(platformFeeAmount);
             }
             if (platformFeeAmount > 0) {
                 forwardPlatformFee();
-            forwardAffiliateAward();
+                forwardAffiliateAward();
             }
         }
         return true;
+    }
+
+    function getPlatformFeeAmount() private view returns (uint256) {
+        return total.mul(poolManager.getPlatformFee()).div(10000);
     }
 
     function claimReward() external returns (bool) {
@@ -344,9 +358,11 @@ contract BettingPool {
         uint256 amount;
         if (
             (block.timestamp - game.endDate > WAIT_TIME_FOR_RESULT &&
-                result == 0) || winOutcome == total
+                result == 0) ||
+            winOutcome == total ||
+            total < minPoolSize
         ) {
-            // can withdraw after 5 hours or we have only winners in a pool
+            // can withdraw after 5 hours or we have only winners in a pool or the pool is inactive
             amount = userBet[msg.sender];
         } else {
             require(result != 0);
@@ -398,40 +414,40 @@ contract BettingPool {
         return true;
     }
 
+    //Staking
     function forwardPlatformFee() internal {
         require(platformFeeAmount > 0);
-        require(!claimedPlatformFee);
-        claimedPlatformFee = true;
         address stakingAddress = oracle.getStakingAddress();
+        uint256 amount = platformFeeAmount / 2;
         if (currency == address(0)) {
-            Staking(stakingAddress).shareIncomeEth{value: platformFeeAmount}();
+            Staking(stakingAddress).shareIncomeEth{value: amount}();
         } else {
             IERC20 token = IERC20(currency);
-            token.approve(stakingAddress, platformFeeAmount);
-            Staking(stakingAddress).shareIncome(currency, platformFeeAmount);
+            token.approve(stakingAddress, amount);
+            Staking(stakingAddress).shareIncome(currency, amount);
         }
     }
 
+    //Affiliate
     function forwardAffiliateAward() internal {
+        require(platformFeeAmount > 0);
         address affiliateAddr = poolManager.getAffiliateAddress();
         Affiliate affiliateSC = Affiliate(affiliateAddr);
 
-        uint256 awardTotal;
-
-        //       uint256 winShare = userSideBet[msg.sender][result];
-
+        uint256 awardTotal = platformFeeAmount / 2;
         for (uint256 i = 0; i < betUsers.length; i++) {
             address _addr = betUsers[i];
             address _affiliate = affiliateSC.getAffiliateOf(_addr);
-            if (userBet[_addr] > 0 && _affiliate != address(0)) {
+            if (_affiliate != address(0)) {
                 affiliates.push(_affiliate);
-                uint256 award = userBet[_addr]
-                .mul(poolManager.getAffiliatePercent())
-                .div(10000);
-                awards.push(award);
-                awardTotal = awardTotal.add(award);
             }
         }
+
+        for (uint256 i = 0; i < affiliates.length; i++) {
+            uint256 award = awardTotal / affiliates.length;
+            awards.push(award);
+        }
+
         if (awardTotal > 0) {
             winOutcome = winOutcome.sub(awardTotal);
             if (currency == address(0)) {
