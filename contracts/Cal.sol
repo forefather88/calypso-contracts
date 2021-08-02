@@ -197,7 +197,7 @@ contract Cal is IERC20, Initializable {
         emit ChangeLockStatusFrom(_investor, false);
     }
 
-    function burn(uint256 _value) public onlyOwner returns (bool) {
+    function burn(uint256 _value) public returns (bool) {
         require(
             balances[msg.sender] >= _value,
             "Balance does not have enough tokens"

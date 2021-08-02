@@ -44,9 +44,10 @@ contract PoolManager is Initializable {
         //uint256 _minPoolSize, = _currencyDetails[3]
         uint256[] memory _currencyDetails,
         address[] memory _whitelist,
-        //uint8 _handicapResult, =_handicap[0]
-        //uint8 _handicapValue =_handicap[1]
-        uint8[] memory _handicap
+        //_handicapWhole, =_handicap[0] * 100
+        //_handicapFractional =_handicap[1] * 100
+        bool _hasHandicap,
+        int256[] memory _handicap
     ) external returns (address) {
         require(
             _currencyDetails[0] <= 9500,
@@ -54,7 +55,6 @@ contract PoolManager is Initializable {
         );
         require(_endDate > block.timestamp, "End date should be in future");
         require(_currencyDetails[1] > 0, "Max cap should larger than 0");
-        require(_handicap[0] < 3, "Handicap Result should be lesser than 3");
         BettingPool pool = new BettingPool(
             msg.sender,
             _title,
@@ -65,6 +65,7 @@ contract PoolManager is Initializable {
             _currency,
             _currencyDetails,
             _whitelist,
+            _hasHandicap,
             _handicap
         );
         require(

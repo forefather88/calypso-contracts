@@ -9,8 +9,8 @@ import "./Staking.sol";
 import "./Affiliate.sol";
 import "./Oracle.sol";
 struct Handicap {
-    uint8 result;
-    uint32 value;
+    int256 whole; // * 100
+    int256 fractional; // * 100
 }
 
 struct Game {
@@ -39,6 +39,7 @@ contract BettingPool {
     address[] public whitelist;
     mapping(address => uint256) whitelistIndexes;
     uint256 public minBet;
+    bool public hasHandicap;
     Handicap public handicap;
     uint256 public minPoolSize;
 
@@ -56,6 +57,7 @@ contract BettingPool {
     uint8 public result; //0: not yet, 1: team1, 2: team2, 3: draw
     uint256 public winTotal;
     uint256 public winOutcome;
+    uint256 refund;
     uint256 public poolFeeAmount;
     uint256 public platformFeeAmount;
     address[] affiliates;
@@ -78,7 +80,8 @@ contract BettingPool {
         address _currency,
         uint256[] memory _currencyDetails,
         address[] memory _whitelist,
-        uint8[] memory _handicap
+        bool _hasHandicap,
+        int256[] memory _handicap
     ) {
         owner = _owner;
         title = _title;
@@ -89,8 +92,9 @@ contract BettingPool {
         createdDate = block.timestamp;
         result = 0;
         minBet = _currencyDetails[2];
-        handicap.result = _handicap[0];
-        handicap.value = _handicap[1];
+        hasHandicap = _hasHandicap;
+        handicap.whole = _handicap[0];
+        handicap.fractional = _handicap[1];
         poolManager = PoolManager(msg.sender);
         depositedCal = _currencyDetails[1];
         maxCap = poolManager.getMaxCap(_currencyDetails[1], _currency);
@@ -159,7 +163,8 @@ contract BettingPool {
             uint256 _maxCap,
             address _owner,
             bool _isPrivate,
-            uint256 _minPoolSize
+            uint256 _minPoolSize,
+            bool _hasHandicap
         )
     {
         _title = title;
@@ -172,6 +177,7 @@ contract BettingPool {
         _isPrivate = isPrivate;
         _depositedCal = depositedCal;
         _minPoolSize = minPoolSize;
+        _hasHandicap = hasHandicap;
     }
 
     function getPoolDetail2()
@@ -182,6 +188,7 @@ contract BettingPool {
             uint256 _total,
             uint256 _winOutcome,
             uint256 _winTotal,
+            uint256 _refund,
             uint256 _poolFeeAmount,
             address[] memory _betUsers,
             uint256 _createdDate,
@@ -195,6 +202,7 @@ contract BettingPool {
         _total = total;
         _winOutcome = winOutcome;
         _winTotal = winTotal;
+        _refund = refund;
         _poolFeeAmount = poolFeeAmount;
         _betUsers = betUsers;
         _createdDate = createdDate;
@@ -307,33 +315,101 @@ contract BettingPool {
         whitelistIndexes[_oldAddress] = 0;
     }
 
-    function setResult(uint8 _sideWin, uint8 _winResult)
-        external
-        onlyEndDate
-        returns (bool)
+    function isHalf() private view returns (bool) {
+        int256 abs = handicap.fractional >= 0
+            ? handicap.fractional
+            : handicap.fractional * -1;
+        return abs == 50;
+    }
+
+    function roundResult(int256 _aResult) private view returns (int256) {
+        if (handicap.fractional == -25) {
+            return _aResult + 25;
+        } else if (handicap.fractional == 25) {
+            return _aResult - 25;
+        } else if (handicap.fractional == -75) {
+            return _aResult - 25;
+        } else if (handicap.fractional == 75) {
+            return _aResult + 25;
+        }
+    }
+
+    //1- Team A Wins
+    //2- Team A Loses
+    //3- Draw
+    //4- Team A Half Wins
+    //5- Team A Half Loses
+    function defineResult(int256 _aResult, int256 _bResult)
+        private
+        view
+        returns (uint8)
     {
+        _aResult = _aResult - _bResult;
+        _bResult = 0;
+        _aResult += handicap.whole + handicap.fractional;
+
+        if (_aResult < 0 || _bResult > _aResult) {
+            if (
+                handicap.fractional != 50 && roundResult(_aResult) == _bResult
+            ) {
+                return 5;
+            }
+            return 2;
+        } else if (_aResult > _bResult) {
+            if (
+                handicap.fractional != 50 && roundResult(_aResult) == _bResult
+            ) {
+                return 4;
+            }
+            return 1;
+        } else if (_aResult == _bResult) {
+            return 3;
+        }
+    }
+
+    function setResult(
+        uint8 _sideWin,
+        int256 _aResult,
+        int256 _bResult
+    ) external onlyEndDate returns (bool) {
         require(poolManager.getOperatorAddress() == msg.sender);
         require(_sideWin > 0);
-        if (
-            (_sideWin == handicap.result && _winResult >= handicap.value) ||
-            _sideWin != handicap.result ||
-            _sideWin == 3 ||
-            handicap.result == 0
-        ) {
-            result = _sideWin;
-        } else {
-            result = 3 - _sideWin;
+        if (hasHandicap) {
+            _sideWin = defineResult(_aResult * 100, _bResult * 100);
         }
+        result = _sideWin;
         if (total > 0) {
-            winTotal = sideTotals[result];
+            if (result > 3) {
+                winTotal = sideTotals[result == 4 ? 1 : 2];
+            } else {
+                winTotal = sideTotals[result];
+            }
+
+            // Calculation of winOutcome
             // If there are no winners in the pool the pool creator gets all the bets
-            if (winTotal == 0) {
+            if (winTotal == 0 && !(result == 3 && hasHandicap)) {
                 platformFeeAmount = getPlatformFeeAmount();
                 winOutcome = total.sub(platformFeeAmount);
             }
-            //If there are only winners in the pool, winners get back their bets without paying fees or the pool is inactive
-            else if (winTotal == total || total < minPoolSize) {
+            //If there are only winners in the pool
+            //or the pool is inactive
+            //or Handicap is set to zero and the result of a game is Draw !!!
+            //winners get back their bets without paying fees
+            else if (
+                winTotal == total ||
+                total < minPoolSize ||
+                (result == 3 && hasHandicap)
+            ) {
                 winOutcome = total;
+                //Half Win / Half Loose
+            } else if (result == 4 || result == 5) {
+                platformFeeAmount = getPlatformFeeAmount();
+                poolFeeAmount = total.mul(poolFee).div(10000);
+                uint256 subTotal = (total - sideTotals[result == 4 ? 2 : 1] / 2)
+                .sub(poolFeeAmount)
+                .sub(platformFeeAmount);
+                winOutcome = subTotal;
+                refund = sideTotals[result == 4 ? 2 : 1] / 2;
             }
             //Regular case, when there winners and loosers in the pool
             else {
@@ -366,8 +442,20 @@ contract BettingPool {
             amount = userBet[msg.sender];
         } else {
             require(result != 0);
-            uint256 winShare = userSideBet[msg.sender][result];
+            uint256 winShare;
+            if (result <= 3) {
+                winShare = userSideBet[msg.sender][result];
+            } else {
+                winShare = userSideBet[msg.sender][result == 4 ? 1 : 2];
+            }
             uint256 preAmount = winTotal != 0 ? getWinAmount(winShare) : 0;
+            if (result > 3) {
+                uint256 refundShare = refund != 0
+                    ? userSideBet[msg.sender][result == 4 ? 2 : 1] / 2
+                    : 0;
+                preAmount += refundShare;
+            }
+
             amount = preAmount >= winShare ? preAmount : winShare;
         }
 
@@ -404,13 +492,18 @@ contract BettingPool {
         require(!claimedDepositAndFee);
         claimedDepositAndFee = true;
 
-        if (winTotal == 0) {
+        /*if (winTotal == 0) {
             withdraw(payable(owner), winOutcome);
-        }
+        }*/
         if (poolFeeAmount > 0) {
             withdraw(payable(msg.sender), poolFeeAmount);
         }
-        IERC20(poolManager.getCalAddress()).transfer(msg.sender, depositedCal);
+
+        IERC20(poolManager.getCalAddress()).transfer(
+            msg.sender,
+            depositedCal / 2
+        );
+        ICal(poolManager.getCalAddress()).burn(depositedCal / 2);
         return true;
     }
 
@@ -489,4 +582,8 @@ contract BettingPool {
     function changeOracle(address _newAddress) external onlyOwner {
         oracle = Oracle(_newAddress);
     }
+}
+
+interface ICal {
+    function burn(uint256 _value) external returns (bool);
 }
