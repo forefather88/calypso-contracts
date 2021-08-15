@@ -101,7 +101,7 @@ contract Oracle is Initializable {
 
         supportCurrencies = [cal, usdt];
 
-        stakePercent = 1000;
+        stakePercent = 2500;
         platformFee = 100;
         affiliatePercent = 125;
 
@@ -141,9 +141,9 @@ contract Oracle is Initializable {
         int128 max = upperLimit.div(ABDKMath64x64.fromUInt(1).add(exponent));
         // Convert to uint256 and round up to thoundsand number
         uint256 maxInUSD = uint256(ABDKMath64x64.toUInt(max))
-        .add(500)
-        .div(1000)
-        .mul(1000 * 10**18);
+            .add(500)
+            .div(1000)
+            .mul(1000 * 10**18);
         _maxCap = maxInUSD.mul(10**8).div(price);
     }
 
