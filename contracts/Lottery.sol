@@ -50,7 +50,7 @@ contract Lottery {
     uint256 public originalTotalStaked;
 
     modifier isCapReached() {
-        require(totalStaked >= totalPrize, "2M CAL cap is not reached.");
+        require(totalStaked >= totalPrize, "Cap is not reached.");
         _;
     }
 
@@ -74,7 +74,7 @@ contract Lottery {
         winNumber = _winNumber;
         lotteryManagerAddress = _lotteryManagerAddress;
         createdDate = block.timestamp;
-        endDate = createdDate.add(7200); // +2 Hours for testing
+        endDate = createdDate.add(7200 * 5); // +2 Hours for testing
         hasDrawn = false;
         totalPrize = _totalPrize;
         firstPrizeTotal = totalPrize.mul(40).div(100);
@@ -232,7 +232,10 @@ contract Lottery {
         return true;
     }
 
-    function getTicketBatch(uint256 _amount) external returns (bool) {
+    function getTicketBatch(uint256 _amount, uint256[] memory _numbers)
+        external
+        returns (bool)
+    {
         IERC20(0x36DF4070E048A752C5abD7eFD22178ce8ef92535).transferFrom(
             msg.sender,
             address(this),
@@ -246,8 +249,12 @@ contract Lottery {
             totalTickets = totalTickets.add(
                 1000000000000000000 /* 1 CAL*/
             );
-            uint256 ticketNumber = random().add(10000000);
-            userToTickets[msg.sender].push(ticketNumber);
+            if (_numbers.length == 0) {
+                uint256 ticketNumber = random().add(10000000);
+                userToTickets[msg.sender].push(ticketNumber);
+            } else {
+                userToTickets[msg.sender].push(_numbers[i].add(10000000));
+            }
         }
 
         return true;
@@ -385,6 +392,14 @@ contract Lottery {
         _match3 = match3;
         _match2 = match2;
         _match1 = match1;
+    }
+
+    function getTicketsOfPlayer()
+        external
+        view
+        returns (uint256[] memory _tickets)
+    {
+        _tickets = userToTickets[msg.sender];
     }
 
     function hasClaimedPrize(address addr) internal view returns (bool) {

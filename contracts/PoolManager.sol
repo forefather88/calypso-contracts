@@ -46,7 +46,9 @@ contract PoolManager is Initializable {
         address[] memory _whitelist,
         //_handicapWhole, =_handicap[0] * 100
         //_handicapFractional =_handicap[1] * 100
-        bool _hasHandicap,
+        //bool _hasHandicap, = _bools[0]
+        //bool _isUnlimited = _bools[1]
+        bool[] memory _bools,
         int256[] memory _handicap
     ) external returns (address) {
         require(
@@ -65,7 +67,7 @@ contract PoolManager is Initializable {
             _currency,
             _currencyDetails,
             _whitelist,
-            _hasHandicap,
+            _bools,
             _handicap
         );
         require(

@@ -6,7 +6,7 @@ import "./OpenZeppelin/IERC20.sol";
 import "./Lottery.sol";
 import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
 
-contract LotteryManager is Initializable, VRFConsumerBase {
+contract LotteryManager is VRFInitializable, VRFConsumerBase {
     using SafeMath for uint256;
 
     address[] private lotteries;

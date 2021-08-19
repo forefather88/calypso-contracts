@@ -477,7 +477,7 @@
           {
             "contract": "CalSwap",
             "label": "oracle",
-            "type": "t_contract(Oracle)4618",
+            "type": "t_contract(Oracle)6560",
             "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\CalSwap.sol:13"
           },
           {
@@ -488,7 +488,7 @@
           }
         ],
         "types": {
-          "t_contract(Oracle)4618": {
+          "t_contract(Oracle)6560": {
             "label": "contract Oracle"
           },
           "t_address_payable": {
@@ -12500,6 +12500,658 @@
             "label": "uint256"
           },
           "t_contract(LinkTokenInterface)11189": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "1aa654d1664865bacaaa734665738ff12824f45782540befd6705f35df195148": {
+      "address": "0xbFD36D3613e3DDd4AF8F0bCB1f6011c276b38b8F",
+      "txHash": "0xd285d90cbc758ff0bc48597ac150988215bbb17f3e245fde584abb72f0a53b41",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:10"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:13"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)11189",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:62"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:63"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:65"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:12"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:13"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:18"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)11189": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "312dc447b282ed6c7ea6341e39d6d0cbaedfeb5eaf30fe9b766c0299d952cf96": {
+      "address": "0x9c12B1E878B16e7405c972e4705eD5B1755EAc67",
+      "txHash": "0x5fc3cb81ae0609ccc4bcba74d1c759c5c013a973775d52e4343d38665dfa5c32",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:10"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:13"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)11227",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:62"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:63"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:65"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:12"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:13"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:18"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)11227": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "ffb21d64073ad2f2c6306ae7aed4c40a0dcabbf3754f5e21d8e850348a85be93": {
+      "address": "0x275d1EB356CD9aE5949C1Df5Ca0f4c3c484F84C0",
+      "txHash": "0x7070ce44014fe33ee09d892a0cdb8a7408fc24d61dc8d83956d676306d0d9908",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)6560",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)6560": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "3efaffde8ea49ef614b8e2503f15e3c16d87081426feda3a1cd4bf617e98e25c": {
+      "address": "0xB9f76614658D988ABbE2AbeA4e42C444C2A9AB51",
+      "txHash": "0x59cd1526025874a36a4870c05825f597bd896acaedb73f52377871053b5fce86",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)6560",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)6560": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "a7cbf737be979f1a63c7f08aca969a55ff3eab8c7e8ab7f8080a7eedb82999f0": {
+      "address": "0x0422d8E6F59fEf34bb77e2D37c113A78E7c5b7eF",
+      "txHash": "0x8de2c44010da28e019675c664f472efb442a57fd3bc257cd98a9d11fa983bf48",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)6560",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)6560": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "85c04f5af2ba69fcb6b4810f02b48802b9069a8198f4c2fbdb23953cf0a71aa3": {
+      "address": "0x3fAEB4B001B29C6Db3ac990770A090DfD56FdfA8",
+      "txHash": "0x30da516ee2e7b6a32c187159d2de0b286b7eb1fc2580f6bee737b66f99e2ba2e",
+      "layout": {
+        "storage": [
+          {
+            "contract": "VRFInitializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:10"
+          },
+          {
+            "contract": "VRFInitializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:13"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)11236",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:62"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:63"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:65"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:12"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:13"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:18"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)11236": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "ee513fcc46f32abb0fe8b49508af2cf9712d23d47b487adb85a7e2fe60158043": {
+      "address": "0xfD4932bfA2e509083c6ee11D939520a58f797114",
+      "txHash": "0xc12859622b52e317ac2fff7624dc339e5bdfdf49f6af32a708b9297916dad6da",
+      "layout": {
+        "storage": [
+          {
+            "contract": "VRFInitializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:10"
+          },
+          {
+            "contract": "VRFInitializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:13"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)11259",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:62"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:63"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:65"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:12"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:13"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:18"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)11259": {
             "label": "contract LinkTokenInterface"
           },
           "t_mapping(t_bytes32,t_uint256)": {

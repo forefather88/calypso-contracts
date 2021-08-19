@@ -42,6 +42,7 @@ contract BettingPool {
     bool public hasHandicap;
     Handicap public handicap;
     uint256 public minPoolSize;
+    bool public isUnlimited;
 
     // Progress
     uint256 public total;
@@ -80,7 +81,7 @@ contract BettingPool {
         address _currency,
         uint256[] memory _currencyDetails,
         address[] memory _whitelist,
-        bool _hasHandicap,
+        bool[] memory _bools,
         int256[] memory _handicap
     ) {
         owner = _owner;
@@ -92,16 +93,19 @@ contract BettingPool {
         createdDate = block.timestamp;
         result = 0;
         minBet = _currencyDetails[2];
-        hasHandicap = _hasHandicap;
+        hasHandicap = _bools[0];
         handicap.whole = _handicap[0];
         handicap.fractional = _handicap[1];
         poolManager = PoolManager(msg.sender);
         depositedCal = _currencyDetails[1];
-        maxCap = poolManager.getMaxCap(_currencyDetails[1], _currency);
-        require(
-            _currencyDetails[3] < maxCap,
-            "Min pool size cannot be bigger than max pool size"
-        );
+        isUnlimited = _bools[1];
+        if (!isUnlimited) {
+            maxCap = poolManager.getMaxCap(_currencyDetails[1], _currency);
+            require(
+                _currencyDetails[3] < maxCap,
+                "Min pool size cannot be bigger than max pool size"
+            );
+        }
         minPoolSize = _currencyDetails[3];
         oracle = Oracle(0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72);
         if (_whitelist.length > 0) {
@@ -140,6 +144,7 @@ contract BettingPool {
 
     function addMaxCap(uint256 _depositedCal) public onlyOwner returns (bool) {
         require(_depositedCal > 0);
+        require(!isUnlimited);
         depositedCal = depositedCal.add(_depositedCal);
         maxCap = poolManager.getMaxCap(depositedCal, currency);
         IERC20(poolManager.getCalAddress()).transferFrom(
@@ -164,7 +169,8 @@ contract BettingPool {
             address _owner,
             bool _isPrivate,
             uint256 _minPoolSize,
-            bool _hasHandicap
+            bool _hasHandicap,
+            bool _isUnlimited
         )
     {
         _title = title;
@@ -178,6 +184,7 @@ contract BettingPool {
         _depositedCal = depositedCal;
         _minPoolSize = minPoolSize;
         _hasHandicap = hasHandicap;
+        _isUnlimited = isUnlimited;
     }
 
     function getPoolDetail2()
@@ -259,7 +266,9 @@ contract BettingPool {
             "Betting amount should be equal or higher than minimum bet"
         );
         total = total.add(_amount);
-        require(total <= maxCap, "Maxcap was hit");
+        if (!isUnlimited) {
+            require(total <= maxCap, "Maxcap was hit");
+        }
         if (isPrivate) {
             require(isWhiteList(msg.sender));
         }
@@ -406,8 +415,8 @@ contract BettingPool {
                 platformFeeAmount = getPlatformFeeAmount();
                 poolFeeAmount = total.mul(poolFee).div(10000);
                 uint256 subTotal = (total - sideTotals[result == 4 ? 2 : 1] / 2)
-                .sub(poolFeeAmount)
-                .sub(platformFeeAmount);
+                    .sub(poolFeeAmount)
+                    .sub(platformFeeAmount);
                 winOutcome = subTotal;
                 refund = sideTotals[result == 4 ? 2 : 1] / 2;
             }
