@@ -22,7 +22,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider(
           mnemonic,
-          "wss://rinkeby.infura.io/ws/v3/f52c2dad411f4cd89783cfc42700bfca"
+          "wss://rinkeby.infura.io/ws/v3/9b3be367fb174b298829d298f98cc103"
         ),
       network_id: 4,
       gas: 5500000,

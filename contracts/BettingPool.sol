@@ -8,6 +8,8 @@ import "./PoolManager.sol";
 import "./Staking.sol";
 import "./Affiliate.sol";
 import "./Oracle.sol";
+import "./Interfaces/IBurn.sol";
+
 struct Handicap {
     int256 whole; // * 100
     int256 fractional; // * 100
@@ -219,6 +221,14 @@ contract BettingPool {
         _handicap = handicap;
     }
 
+    function getPoolDetail3()
+        external
+        view
+        returns (uint256 _platformFeeAmount)
+    {
+        _platformFeeAmount = platformFeeAmount;
+    }
+
     function getUserInfo()
         external
         view
@@ -341,6 +351,7 @@ contract BettingPool {
         } else if (handicap.fractional == 75) {
             return _aResult + 25;
         }
+        return _aResult;
     }
 
     //1- Team A Wins
@@ -359,14 +370,18 @@ contract BettingPool {
 
         if (_aResult < 0 || _bResult > _aResult) {
             if (
-                handicap.fractional != 50 && roundResult(_aResult) == _bResult
+                handicap.fractional != 50 &&
+                handicap.fractional != -50 &&
+                roundResult(_aResult) == _bResult
             ) {
                 return 5;
             }
             return 2;
         } else if (_aResult > _bResult) {
             if (
-                handicap.fractional != 50 && roundResult(_aResult) == _bResult
+                handicap.fractional != 50 &&
+                handicap.fractional != -50 &&
+                roundResult(_aResult) == _bResult
             ) {
                 return 4;
             }
@@ -382,8 +397,8 @@ contract BettingPool {
         int256 _bResult
     ) external onlyEndDate returns (bool) {
         require(poolManager.getOperatorAddress() == msg.sender);
-        require(_sideWin > 0);
-        if (hasHandicap) {
+        require(_sideWin > 0 && result == 0);
+        if (hasHandicap && (handicap.whole + handicap.fractional) != 0) {
             _sideWin = defineResult(_aResult * 100, _bResult * 100);
         }
         result = _sideWin;
@@ -397,7 +412,9 @@ contract BettingPool {
             // Calculation of winOutcome
             // If there are no winners in the pool the pool creator gets all the bets
             if (winTotal == 0 && !(result == 3 && hasHandicap)) {
-                platformFeeAmount = getPlatformFeeAmount();
+                platformFeeAmount = total.mul(poolManager.getPlatformFee()).div(
+                        10000
+                    );
                 winOutcome = total.sub(platformFeeAmount);
             }
             //If there are only winners in the pool
@@ -412,30 +429,48 @@ contract BettingPool {
                 winOutcome = total;
                 //Half Win / Half Loose
             } else if (result == 4 || result == 5) {
-                platformFeeAmount = getPlatformFeeAmount();
-                poolFeeAmount = total.mul(poolFee).div(10000);
-                uint256 subTotal = (total - sideTotals[result == 4 ? 2 : 1] / 2)
+                uint256 looseTotal = total.sub(winTotal).sub(
+                    sideTotals[result == 4 ? 2 : 1] / 2
+                );
+
+                platformFeeAmount = looseTotal
+                    .mul(poolManager.getPlatformFee())
+                    .div(10000);
+                poolFeeAmount = looseTotal.mul(poolFee).div(10000);
+                looseTotal = looseTotal
                     .sub(poolFeeAmount)
-                    .sub(platformFeeAmount);
-                winOutcome = subTotal;
+                    .sub(platformFeeAmount)
+                    .add(winTotal);
+                winOutcome = looseTotal;
                 refund = sideTotals[result == 4 ? 2 : 1] / 2;
             }
-            //Regular case, when there winners and loosers in the pool
+            //Regular case, when there are winners and loosers in the pool
             else {
-                platformFeeAmount = getPlatformFeeAmount();
-                poolFeeAmount = total.mul(poolFee).div(10000);
-                winOutcome = total.sub(poolFeeAmount).sub(platformFeeAmount);
+                uint256 looseTotal = total.sub(winTotal);
+                platformFeeAmount = looseTotal
+                    .mul(poolManager.getPlatformFee())
+                    .div(10000);
+                poolFeeAmount = looseTotal.mul(poolFee).div(10000);
+                winOutcome = looseTotal
+                    .sub(poolFeeAmount)
+                    .sub(platformFeeAmount)
+                    .add(winTotal);
             }
             if (platformFeeAmount > 0) {
                 forwardPlatformFee();
                 forwardAffiliateAward();
             }
         }
-        return true;
-    }
 
-    function getPlatformFeeAmount() private view returns (uint256) {
-        return total.mul(poolManager.getPlatformFee()).div(10000);
+        // 50% of deposited CAL gets burned, another 50% we send to staking
+        address stakingAddress = oracle.getStakingAddress();
+        IERC20 token = IERC20(currency);
+        token.approve(stakingAddress, depositedCal / 2);
+        Staking(stakingAddress).shareIncome(currency, depositedCal / 2);
+
+        IBurn(poolManager.getCalAddress()).burn(depositedCal / 2);
+
+        return true;
     }
 
     function claimReward() external returns (bool) {
@@ -501,18 +536,15 @@ contract BettingPool {
         require(!claimedDepositAndFee);
         claimedDepositAndFee = true;
 
-        /*if (winTotal == 0) {
-            withdraw(payable(owner), winOutcome);
-        }*/
-        if (poolFeeAmount > 0) {
-            withdraw(payable(msg.sender), poolFeeAmount);
-        }
+        uint256 totalToWithdraw;
 
-        IERC20(poolManager.getCalAddress()).transfer(
-            msg.sender,
-            depositedCal / 2
-        );
-        ICal(poolManager.getCalAddress()).burn(depositedCal / 2);
+        if (winTotal == 0 && !(result == 3 && hasHandicap))
+            totalToWithdraw = totalToWithdraw.add(winOutcome);
+        if (poolFeeAmount > 0)
+            totalToWithdraw = totalToWithdraw.add(poolFeeAmount);
+
+        withdraw(payable(owner), totalToWithdraw);
+
         return true;
     }
 
@@ -536,7 +568,7 @@ contract BettingPool {
         address affiliateAddr = poolManager.getAffiliateAddress();
         Affiliate affiliateSC = Affiliate(affiliateAddr);
 
-        uint256 awardTotal = platformFeeAmount / 2;
+        uint256 awardTotal;
         for (uint256 i = 0; i < betUsers.length; i++) {
             address _addr = betUsers[i];
             address _affiliate = affiliateSC.getAffiliateOf(_addr);
@@ -591,8 +623,4 @@ contract BettingPool {
     function changeOracle(address _newAddress) external onlyOwner {
         oracle = Oracle(_newAddress);
     }
-}
-
-interface ICal {
-    function burn(uint256 _value) external returns (bool);
 }
