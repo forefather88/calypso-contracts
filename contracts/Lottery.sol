@@ -20,23 +20,26 @@ contract Lottery {
     address public lotteryManagerAddress;
     bool private isRolledOver;
 
+    //Make private after deploying on Mainnet--------------------
     //Result
-    address[] private firstPrize;
-    address[] private secondPrize;
-    address[] private thirdPrize;
-    address[] private match4;
-    address[] private match3;
-    address[] private match2;
-    address[] private match1;
+    address[] public firstPrize;
+    address[] public secondPrize;
+    address[] public thirdPrize;
+    address[] public match4;
+    address[] public match3;
+    address[] public match2;
+    address[] public match1;
 
     // Prizes
-    uint256 private firstPrizeTotal;
-    uint256 private secondPrizeTotal;
-    uint256 private thirdPrizeTotal;
-    uint256 private match4Total;
-    uint256 private match3Total;
-    uint256 private match2Total;
-    uint256 private match1Total;
+    uint256 public firstPrizeTotal;
+    uint256 public secondPrizeTotal;
+    uint256 public thirdPrizeTotal;
+    uint256 public match4Total;
+    uint256 public match3Total;
+    uint256 public match2Total;
+    uint256 public match1Total;
+
+    //-----------------------------------------
 
     // Tickets and prizes
     mapping(address => uint256[]) public userToTickets;
@@ -59,7 +62,7 @@ contract Lottery {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "Only owner is allowed");
+        require(msg.sender == owner, "Only owner is allowed2");
         _;
     }
 
@@ -79,7 +82,7 @@ contract Lottery {
         winNumber = _winNumber;
         lotteryManagerAddress = _lotteryManagerAddress;
         createdDate = block.timestamp;
-        endDate = createdDate.add(7200 * 5); // +2 Hours for testing
+        endDate = createdDate.add(3600 * 4); // +2 Hours for testing
         hasDrawn = false;
         totalPrize = _totalPrize;
         firstPrizeTotal = totalPrize.mul(40).div(100);
@@ -142,13 +145,11 @@ contract Lottery {
         return (winTicketsAmount * total) / prizeAddresses.length;
     }
 
-    function startDraw()
-        external
-        isCapReached
-        onlyEndDate
-        onlyOwner
-        returns (bool)
-    {
+    function startDraw() external isCapReached returns (bool) {
+        require(
+            msg.sender == lotteryManagerAddress,
+            "Only Lottery Manager SC can start draw"
+        );
         require(!hasDrawn, "Can not draw twice in the same lottery.");
         // Defining winning tickets
         for (uint256 i = 0; i < players.length; i++) {
@@ -280,7 +281,6 @@ contract Lottery {
     }
 
     function stake(uint256 _amount) external returns (bool) {
-        require(block.timestamp < endDate, "Cannot stake after a lottery ends");
         require(_amount > 0, "The amount to stake cannot be equal to 0.");
         IERC20(Oracle(oracleAddress).getCalAddress()).transferFrom(
             msg.sender,

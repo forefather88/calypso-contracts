@@ -464,11 +464,12 @@ contract BettingPool {
 
         // 50% of deposited CAL gets burned, another 50% we send to staking
         address stakingAddress = oracle.getStakingAddress();
-        IERC20 token = IERC20(currency);
+        address calAddress = poolManager.getCalAddress();
+        IERC20 token = IERC20(calAddress);
         token.approve(stakingAddress, depositedCal / 2);
-        Staking(stakingAddress).shareIncome(currency, depositedCal / 2);
+        Staking(stakingAddress).shareIncome(calAddress, depositedCal / 2);
 
-        IBurn(poolManager.getCalAddress()).burn(depositedCal / 2);
+        IBurn(calAddress).burn(depositedCal / 2);
 
         return true;
     }

@@ -179,6 +179,16 @@
       "address": "0xb893f261BA2fd8aA0E3e04302B44b985e84Ef392",
       "txHash": "0xfa1b3aa2b423db52518f964aafe06a62bbe4c2d93d4e5b7a81657eab76eda366",
       "kind": "transparent"
+    },
+    {
+      "address": "0x3273Ea585974Dc845455fD935f2A35E73ABe0663",
+      "txHash": "0x42f58afab062f12c5acdcbc1c6c30d10042cdff59c86890100ca7688c05272bc",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xfFB1726C4c600471d4529286553cE315234eeBE8",
+      "txHash": "0x4618aba27a56a894cdd081a113b7bbf8ad07f57d89fe74e14d05d6efe3c02ec6",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -16082,6 +16092,1830 @@
             "label": "address[]"
           },
           "t_contract(Oracle)7072": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "388be59826673a652913b7641f37345431c3f166b61ce996884f5946333711b6": {
+      "address": "0xD2C211cAd47b7003Fc685d7eaFB13c236f94355A",
+      "txHash": "0x160e496a80ca74db97396a7dbe6718a514a316d3ece44c1b66489afc78a05e67",
+      "layout": {
+        "storage": [
+          {
+            "contract": "VRFInitializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:10"
+          },
+          {
+            "contract": "VRFInitializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:13"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)11750",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:62"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:63"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\@chainlink\\contracts\\src\\v0.6\\VRFConsumerBase.sol:65"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:13"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:19"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)11750": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "554570f4d6aabd60300d15d1d6e1cd4fc956688ea6839068f2a4760957c5c6ed": {
+      "address": "0xeC4e128F5cDA69723227091385D60e9EEea1804E",
+      "txHash": "0x83b4d5e8e5978b6ea481f14305a9f27120b8a7604e8c609d71626457a3d29de7",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "7cb6051f5e5ca7674275ebc1e5d73d55f316820072015c69428f37323a51a5df": {
+      "address": "0xA04950B3F62C3b96F2B05E3a1C347aA421A315b6",
+      "txHash": "0x94cc4642c6f06708efcc00640c9d62aba062bc436c26eeb50d10df16ed050783",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "49cb72c47da94fccbee015aead17d370995d14ccf331ca131203138ad00821a4": {
+      "address": "0xa18c98a155774Ad0d09d51674d9ca1937FC5D8b1",
+      "txHash": "0xb9262252e54786bf7a1ae9eb6fcf422bd1842751ad48d131a9dde379a78afa36",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "55971d3e410f307c5f1770a6be34dfa913349ca6107581c1a57b64634f1a6c72": {
+      "address": "0x7b401E56Fb566172523a74B5bF228a4428416A8c",
+      "txHash": "0x869d62761f6ab0bf754e4304981a7ec7839412ee19d607751b6f7ad5c275f841",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "a28ef66e3f402c8a46651ca17108849e628ef4d5fa85b870159d08603d9a63fc": {
+      "address": "0x4cACA36b11D945456269146B85da943381F1de5F",
+      "txHash": "0xebe8667166d570660e09efa484ca2cc6bcd39c7c76557174a9d687b472e26e00",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "c54db5ed537d6149565f1329f426c6db063ad7dbe77e436686a4a675489b18a7": {
+      "address": "0x13dB0696B0726CAF715eFF48979048fADfF55b98",
+      "txHash": "0x883e5ac4e0506503f8423a7d0ea81d06ef477839cf5ce533a9a6aa6f021718e2",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "4eb40454245216f449ca9a4d827d6286defd271dcf27c6cb70db22679fa9b2cc": {
+      "address": "0x585dEca29dc96F2818596Da63bff3307Ae4bB074",
+      "txHash": "0xb5b47f97c10dd778ee7de063e256a41d541f19043f0cf6be3cbeae7d766bad04",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "e1db02e0ec8bb6731ff2e50f19ca2f80ddb276a395ebd30c31fcd6dfeccb3e9e": {
+      "address": "0x988d717539A5E4D48DdE16b206Ec128B35431060",
+      "txHash": "0x5fbbc3c4451f766c4d246deb235afe030b976d0694ba3cad8beaa356124d6c1d",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "657971ddcdf8b9a5420dcfe61c55441bf373db9eb0f99ec42cf25669a5ec4cee": {
+      "address": "0xBba17FB316eb0Ce2b01217fDB2C494Caf408AdB8",
+      "txHash": "0xbb39306cc266be2d88d9bc9f4e6b26df033c125ea2728b82cfabf08f492804da",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "6bc47e227f03006f3ee883843c973aa52071fc2dd5ad4d7f72c2d4823b988699": {
+      "address": "0x30B4633c0085Aa3c1558F4fD536A4917A48D8b87",
+      "txHash": "0x01add12c618ca875a1484533514391b52cb416eab610ffa95b2bcf597645a4fa",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "57de320c7669203d0f41111499e79280e64d8a252e91788955930eec34d6c7e0": {
+      "address": "0x56B5E289FAdeE730DBebbeC3276e5b2d3aAb7448",
+      "txHash": "0x935cfa7bd1ced58b15d280fdedfde2e0f3bd67238eb59666eb44616a60e15999",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "6cb678e29bc9cdd4282c39dcd1cc3ec2114915362ed066b1ce5a693a34a7d93c": {
+      "address": "0x98b56077501CF582e9e6c309D14e10C159D24Ed1",
+      "txHash": "0x517f5b18cb9b48f410f1a4b5d4df6960aef1ace42cb101f74c2dce3fbc2d433e",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "bc0d8c6e6ffd7ec7c31228f97e27dc8dbb4a1e9c430aae10226845b2380e542a": {
+      "address": "0x1Db3fBB309e53FC57f44FC38c8d5Afc62fDc4e18",
+      "txHash": "0xf783e4a0092ae65eb82a509caf8fc85e7332f9f7851abe005d2e142754aed0f7",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "cda0b4314c5ec0330f26e8c09bb8ebb40b5e9d1a81797d48f21b314bd2ae4153": {
+      "address": "0x6B910C71Fa9CFD3DA5F7CA72a4A7b250B21e8f16",
+      "txHash": "0x48ad1ebeb49a439dd2fa66411d8df858f33d550ca2a594a7839a3c97a0bc1169",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3918",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3918": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "05106c181f829889db6ec67cea2ea2549f70cd3b479a00a57f7b7433e219a3bc": {
+      "address": "0xa2191A0Fd9748Bb3A11F9dC0dcC7477d2edEdFff",
+      "txHash": "0x08e6acc2b905ee8a8f87cd01a6fdb5bfe508075ba86a1b4440369ae7f89cb662",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3922",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(LinkTokenInterface)3922": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "8a968f40bf82fee5270c9aad7eb96af8c199b56c6c2a38edc945671443dd411d": {
+      "address": "0x076c984Cde99038594978f64DEe548fEE6b7AB20",
+      "txHash": "0xfa3ab262a2a66d4541a123900c481af76f6de612b7a7eaf5d965579073b82e83",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)7358",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)7358": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "08489aeea87bc38c9f442a4504bc8a729b1a61d6f4f81de5056797ffc45fc4bd": {
+      "address": "0x8Bd38BFdebC6C47bD600e692E4cce0412B34d823",
+      "txHash": "0x1e21e2e144c5866c375a461b4248714f8dbc7b21d3fa5fdbe7775a184454e5c9",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)7358",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\C\\Novum projects\\calypso-contracts\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)7358": {
             "label": "contract Oracle"
           },
           "t_mapping(t_address,t_uint8)": {

@@ -4,10 +4,11 @@ pragma solidity ^0.8.3;
 import "./OpenZeppelin/SafeMath.sol";
 import "./OpenZeppelin/IERC20.sol";
 import "./Lottery.sol";
-import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
+import "./Link/VRFConsumerBase.sol";
 import "./Oracle.sol";
+import "./OpenZeppelin/Initializable.sol";
 
-contract LotteryManager is VRFInitializable, VRFConsumerBase {
+contract LotteryManager is Initializable, VRFConsumerBase {
     using SafeMath for uint256;
 
     address[] private lotteries;
@@ -39,11 +40,12 @@ contract LotteryManager is VRFInitializable, VRFConsumerBase {
         );
     }
 
-    function createLottery(uint256 _totalPrize)
-        external
-        onlyOwner
-        returns (address)
-    {
+    function createLottery(uint256 _totalPrize) external returns (address) {
+        if (lotteries.length > 0) {
+            address lastLottery = lotteries[lotteries.length - 1];
+            Lottery(lastLottery).startDraw();
+        }
+
         //Uncomment after testing
         //require(randomResult != 0, "Use getRandomNumber() function first.");
         Lottery lottery = new Lottery(
@@ -85,7 +87,7 @@ contract LotteryManager is VRFInitializable, VRFConsumerBase {
         return true;
     }
 
-    function getAllLotteries() external view returns (address[] memory) {
+    function getAllLotteries() public view returns (address[] memory) {
         return lotteries;
     }
 
