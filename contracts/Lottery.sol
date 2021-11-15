@@ -30,7 +30,11 @@ contract Lottery {
     address[] public match2;
     address[] public match1;
 
+    //Pool size at the time the lottery was drawn
+    uint256 poolSize;
+
     // Prizes
+    uint256 public totalWin;
     uint256 public firstPrizeTotal;
     uint256 public secondPrizeTotal;
     uint256 public thirdPrizeTotal;
@@ -46,23 +50,8 @@ contract Lottery {
     address[] public usersClaimedPrize;
     uint256 public totalTickets;
 
-    // Staking
-    address[] public stakersAddresses;
-    uint256[] public stakingAmounts;
-    mapping(address => uint256) public stAddrsToIndex;
-    address[] public usersClaimedStake;
-    //If totalStaked > totalPrize, the pool becomes active
-    uint256 public totalStaked;
-    // We need this to calculate stake percent in unstake()
-    uint256 public originalTotalStaked;
-
-    modifier isCapReached() {
-        require(totalStaked >= totalPrize, "Cap is not reached.");
-        _;
-    }
-
     modifier onlyOwner() {
-        require(msg.sender == owner, "Only owner is allowed2");
+        require(msg.sender == owner, "Only owner is allowed");
         _;
     }
 
@@ -82,7 +71,7 @@ contract Lottery {
         winNumber = _winNumber;
         lotteryManagerAddress = _lotteryManagerAddress;
         createdDate = block.timestamp;
-        endDate = createdDate.add(3600 * 4); // +2 Hours for testing
+        endDate = createdDate.add(3600 * 24);
         hasDrawn = false;
         totalPrize = _totalPrize;
         firstPrizeTotal = totalPrize.mul(40).div(100);
@@ -120,9 +109,10 @@ contract Lottery {
         if (match1.length > 0)
             amount = amount.add(calcPrizeAmount(match1, match1Total));
 
-        IERC20(Oracle(oracleAddress).getCalAddress()).transfer(
+        IERC20(Oracle(oracleAddress).getCalAddress()).transferFrom(
+            lotteryManagerAddress,
             msg.sender,
-            amount * 1000000000000000000 // 1 CAL
+            amount.mul(1000000000000000000) // 1 CAL
         );
 
         usersClaimedPrize.push(msg.sender);
@@ -145,49 +135,49 @@ contract Lottery {
         return (winTicketsAmount * total) / prizeAddresses.length;
     }
 
-    function startDraw() external isCapReached returns (bool) {
+    function startDraw(uint256 _poolSize) external returns (bool) {
         require(
             msg.sender == lotteryManagerAddress,
             "Only Lottery Manager SC can start draw"
         );
         require(!hasDrawn, "Can not draw twice in the same lottery.");
+
         // Defining winning tickets
         for (uint256 i = 0; i < players.length; i++) {
             address player = players[i];
             for (uint256 j = 0; j < userToTickets[player].length; j++) {
                 uint256 userNumber = userToTickets[player][j];
                 if (userNumber == winNumber) {
-                    if (firstPrize.length == 0) {
-                        totalStaked = totalStaked.sub(firstPrizeTotal);
-                    }
+                    if (firstPrize.length == 0)
+                        totalWin = totalWin.add(firstPrizeTotal);
+
                     firstPrize.push(player);
                 } else if (userNumber.div(10) == winNumber.div(10)) {
-                    if (secondPrize.length == 0) {
-                        totalStaked = totalStaked.sub(secondPrizeTotal);
-                    }
+                    if (secondPrize.length == 0)
+                        totalWin = totalWin.add(secondPrizeTotal);
+
                     secondPrize.push(player);
                 } else if (userNumber.div(100) == winNumber.div(100)) {
-                    if (thirdPrize.length == 0) {
-                        totalStaked = totalStaked.sub(thirdPrizeTotal);
-                    }
+                    if (thirdPrize.length == 0)
+                        totalWin = totalWin.add(thirdPrizeTotal);
+
                     thirdPrize.push(player);
                 } else if (userNumber.div(1000) == winNumber.div(1000)) {
-                    if (match4.length == 0) {
-                        totalStaked = totalStaked.sub(match4Total);
-                    }
+                    if (match4.length == 0)
+                        totalWin = totalWin.add(match4Total);
+
                     match4.push(player);
                 } else if (userNumber.div(10000) == winNumber.div(10000)) {
-                    if (match3.length == 0) {
-                        totalStaked = totalStaked.sub(match3Total);
-                    }
+                    if (match3.length == 0)
+                        totalWin = totalWin.add(match3Total);
+
                     match3.push(player);
                 } else if (
                     userNumber.div(100000) == winNumber.div(100000) ||
                     userNumber % 100 == winNumber % 100
                 ) {
-                    if (match2.length == 0) {
-                        totalStaked = totalStaked.sub(match2Total);
-                    }
+                    if (match2.length == 0)
+                        totalWin = totalWin.add(match2Total);
                     match2.push(player);
                     if (
                         userNumber.div(100000) == winNumber.div(100000) &&
@@ -199,9 +189,8 @@ contract Lottery {
                     userNumber.div(1000000) == winNumber.div(1000000) ||
                     userNumber % 10 == winNumber % 10
                 ) {
-                    if (match1.length == 0) {
-                        totalStaked = totalStaked.sub(match1Total);
-                    }
+                    if (match1.length == 0)
+                        totalWin = totalWin.add(match1Total);
                     match1.push(player);
                     if (
                         userNumber.div(1000000) == winNumber.div(1000000) &&
@@ -212,33 +201,15 @@ contract Lottery {
                 }
             }
         }
-        // 5%
-        if (totalStaked > 0) {
-            uint256 stakersFee = totalTickets.mul(5).div(100);
-            if (stakersFee > 0) totalTickets = totalTickets.sub(stakersFee);
-        }
+        // Rewards for stakers
+        //      totalWin = totalWin;
+        /*if (totalTickets > totalWin) {
+        
+        }*/
+
+        poolSize = _poolSize;
+
         hasDrawn = true;
-        return true;
-    }
-
-    function getTicket(uint256 _ticketNumber) external returns (bool) {
-        require(
-            block.timestamp < endDate,
-            "Cannot purchase tickets after a lottery ends"
-        );
-        IERC20(Oracle(oracleAddress).getCalAddress()).transferFrom(
-            msg.sender,
-            address(this),
-            1000000000000000000 // 1 CAL
-        );
-        if (userToTickets[msg.sender].length == 0) {
-            players.push(msg.sender);
-        }
-        userToTickets[msg.sender].push(_ticketNumber.add(10000000));
-        totalTickets = totalTickets.add(
-            1000000000000000000 /* 1 CAL*/
-        );
-
         return true;
     }
 
@@ -253,12 +224,12 @@ contract Lottery {
             );
         }
         require(
-            block.timestamp < endDate,
+            block.timestamp < endDate - 3600,
             "Cannot purchase tickets after a lottery ends"
         );
         IERC20(Oracle(oracleAddress).getCalAddress()).transferFrom(
             msg.sender,
-            address(this),
+            lotteryManagerAddress,
             _amount.mul(1000000000000000000) // 1 CAL
         );
         if (userToTickets[msg.sender].length == 0) {
@@ -267,7 +238,7 @@ contract Lottery {
 
         for (uint256 i = 0; i < _amount; i++) {
             totalTickets = totalTickets.add(
-                1000000000000000000 /* 1 CAL*/
+                1 /* 1 CAL*/
             );
             if (_numbers.length == 0) {
                 uint256 ticketNumber = random().add(10000000);
@@ -278,112 +249,6 @@ contract Lottery {
         }
 
         return true;
-    }
-
-    function stake(uint256 _amount) external returns (bool) {
-        require(_amount > 0, "The amount to stake cannot be equal to 0.");
-        IERC20(Oracle(oracleAddress).getCalAddress()).transferFrom(
-            msg.sender,
-            address(this),
-            _amount.mul(1000000000000000000) // 1 CAL
-        );
-        totalStaked = totalStaked.add(_amount);
-        originalTotalStaked = originalTotalStaked.add(_amount);
-        placeStake(msg.sender, _amount);
-        return true;
-    }
-
-    function placeStake(address _addr, uint256 _amount) private {
-        if (stakersAddresses.length > 0) {
-            uint256 index = stAddrsToIndex[_addr];
-            uint256 usersStake = stakingAmounts[index];
-            if (usersStake > 0) {
-                stakingAmounts[index] = stakingAmounts[index].add(_amount);
-            } else {
-                stakersAddresses.push(_addr);
-                stakingAmounts.push(_amount);
-                stAddrsToIndex[_addr] = stakersAddresses.length.sub(1);
-            }
-        }
-        // First stake in a Lottery
-        else {
-            stakersAddresses.push(_addr);
-            stakingAmounts.push(_amount);
-            stAddrsToIndex[_addr] = stakersAddresses.length.sub(1);
-        }
-    }
-
-    function getUsersStake(address _addr) private view returns (uint256) {
-        return stakingAmounts[stAddrsToIndex[_addr]];
-    }
-
-    function unstake() external returns (bool) {
-        require(hasDrawn, "Can not claim prize or unstake before draw.");
-        require(hasClaimedStake(msg.sender) == false);
-        require(!isRolledOver, "This lottery has already made rollover.");
-        uint256 usersStake = getUsersStake(msg.sender);
-        require(
-            usersStake > 0,
-            "This user haven't ever staked in this lottery."
-        );
-        // msg.senders percent of total stake
-        uint256 percentStake = usersStake.mul(100).div(originalTotalStaked);
-        if (totalStaked > 0) {
-            uint256 usersStakeToReturn = totalStaked.mul(percentStake).div(100);
-            usersStakeToReturn = usersStakeToReturn.mul(1000000000000000000); /* 1 CAL*/
-            IERC20(Oracle(oracleAddress).getCalAddress()).transfer(
-                msg.sender,
-                usersStakeToReturn.add(totalTickets.mul(percentStake).div(100))
-            );
-        } else {
-            IERC20(Oracle(oracleAddress).getCalAddress()).transfer(
-                msg.sender,
-                totalTickets.mul(percentStake).div(100)
-            );
-        }
-
-        usersClaimedStake.push(msg.sender);
-        return true;
-    }
-
-    function rolloverStakes(address _address) external onlyOwner {
-        // require(block.timestamp >= endDate + 3600 * 6, "Cannot rollover yet.");
-        require(hasDrawn, "Can not claim prize or unstake before draw.");
-        require(!isRolledOver, "This lottery has already made rollover.");
-
-        IERC20(Oracle(oracleAddress).getCalAddress()).transfer(
-            _address,
-            totalStaked.mul(1000000000000000000)
-        );
-        Lottery(_address).reciveRollover(
-            totalStaked,
-            stakersAddresses,
-            stakingAmounts,
-            usersClaimedStake
-        );
-        totalStaked = 0;
-        isRolledOver = true;
-    }
-
-    function reciveRollover(
-        uint256 _totalStaked,
-        address[] memory _stakersAddresses,
-        uint256[] memory _stakingAmounts,
-        address[] memory _usersClaimedStake
-    ) external {
-        totalStaked = totalStaked.add(_totalStaked);
-        originalTotalStaked = originalTotalStaked.add(_totalStaked);
-        for (uint256 i = 0; i < _stakersAddresses.length; i++) {
-            bool hasClaimed = false;
-            for (uint256 j = 0; j < _usersClaimedStake.length; j++) {
-                if (_usersClaimedStake[j] == _stakersAddresses[i]) {
-                    hasClaimed = true;
-                }
-            }
-            if (!hasClaimed) {
-                placeStake(_stakersAddresses[i], _stakingAmounts[i]);
-            }
-        }
     }
 
     function getLotteryDetail()
@@ -397,10 +262,9 @@ contract Lottery {
             uint256 _endDate,
             address _lotteryManagerAddress,
             uint256 _totalTickets,
-            uint256 _originalTotalStaked,
             uint256 _playersAmount,
             uint256 _totalPrize,
-            uint256 _totalStaked
+            uint256 _poolSize
         )
     {
         _address = address(this);
@@ -410,27 +274,17 @@ contract Lottery {
         _endDate = endDate;
         _lotteryManagerAddress = lotteryManagerAddress;
         _totalTickets = totalTickets;
-        _originalTotalStaked = originalTotalStaked;
         _playersAmount = players.length;
         _totalPrize = totalPrize;
-        _totalStaked = totalStaked;
+        _poolSize = poolSize;
     }
 
     function getLotteryDetail2()
         external
         view
-        returns (
-            address[] memory _usersClaimedPrize,
-            address[] memory _usersClaimedStake,
-            address[] memory _stakersAddresses,
-            uint256[] memory _stakingAmounts,
-            uint256 _winNumber
-        )
+        returns (address[] memory _usersClaimedPrize, uint256 _winNumber)
     {
         _usersClaimedPrize = usersClaimedPrize;
-        _usersClaimedStake = usersClaimedStake;
-        _stakersAddresses = stakersAddresses;
-        _stakingAmounts = stakingAmounts;
         _winNumber = hasDrawn ? winNumber.mod(10000000) : 0;
     }
 
@@ -466,15 +320,6 @@ contract Lottery {
 
     function hasClaimedPrize(address addr) internal view returns (bool) {
         for (uint256 index = 0; index < usersClaimedPrize.length; index++) {
-            if (usersClaimedPrize[index] == addr) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    function hasClaimedStake(address addr) internal view returns (bool) {
-        for (uint256 index = 0; index < usersClaimedStake.length; index++) {
             if (usersClaimedPrize[index] == addr) {
                 return true;
             }
@@ -520,4 +365,8 @@ contract Lottery {
     function changeEndDate(uint256 _newDate) external {
         endDate = _newDate;
     }
+}
+
+interface IShareReward {
+    function shareStakingReward(uint256 _value) external returns (bool);
 }

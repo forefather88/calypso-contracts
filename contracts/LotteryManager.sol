@@ -21,12 +21,20 @@ contract LotteryManager is Initializable, VRFConsumerBase {
     uint256 internal fee;
     uint256 internal randomResult;
 
+    // Staking
+    // stakingUsers нужен для перевода наград юзерам (если маппинг показывает 0 стейка у юзера - награда юзеру не начисляется )
+    address[] public stakingUsers;
+    mapping(address => uint256) public userToStake;
+    uint256 public totalStaked;
+
     modifier onlyOwner() {
         require(msg.sender == owner, "Only owner is allowed");
         _;
     }
 
     function initialize() public initializer {
+        stakingUsers.push(address(this));
+
         oracleAddress = 0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72;
 
         owner = msg.sender;
@@ -43,23 +51,33 @@ contract LotteryManager is Initializable, VRFConsumerBase {
     function createLottery(uint256 _totalPrize) external returns (address) {
         if (lotteries.length > 0) {
             address lastLottery = lotteries[lotteries.length - 1];
-            Lottery(lastLottery).startDraw();
+            Lottery(lastLottery).startDraw(totalStaked);
+
+            uint256 totalWin = Lottery(lastLottery).totalWin().mul(
+                1000000000000000000
+            );
+            IERC20(Oracle(oracleAddress).getCalAddress()).approve(
+                lastLottery,
+                totalWin
+            );
+            uint256 oldTotalStaked = totalStaked;
+            totalStaked = totalStaked.sub(totalWin).add(
+                Lottery(lastLottery).totalTickets().mul(1000000000000000000)
+            );
+            shareStakingReward(oldTotalStaked);
         }
 
         //Uncomment after testing
-        //require(randomResult != 0, "Use getRandomNumber() function first.");
+        // require(randomResult != 0, "Use getRandomNumber() function first.");
         Lottery lottery = new Lottery(
             msg.sender,
             11234567, //randomResult.mod(10000000).add(10000000),
             address(this),
             _totalPrize
         );
+
         lotteries.push(address(lottery));
-        IERC20(Oracle(oracleAddress).getCalAddress()).approve(
-            address(lottery),
-            _totalPrize.mul(1000000000000000000)
-        );
-        Lottery(address(lottery)).stake(_totalPrize);
+        managerStake(_totalPrize.mul(1000000000000000000));
 
         randomResult = 0;
         return address(lottery);
@@ -91,26 +109,6 @@ contract LotteryManager is Initializable, VRFConsumerBase {
         return lotteries;
     }
 
-    /*function contribute() external onlyOwner returns (bool) {
-        address lastLotteryAddr = lotteries[lotteries.length - 1];
-        Lottery lastLottery = Lottery(lastLotteryAddr);
-        require(
-            lastLottery.originalTotalStaked() < lastLottery.totalPrize() &&
-                block.timestamp >= lastLottery.endDate() - 3600 * 4 &&
-                block.timestamp < lastLottery.endDate(),
-            "Cannot contribute."
-        );
-        uint256 difference = lastLottery.totalPrize() -
-            lastLottery.originalTotalStaked();
-        IERC20(Oracle(oracleAddress).getCalAddress()).approve(
-            lastLotteryAddr,
-            difference.mul(1000000000000000000)
-        );
-        lastLottery.stake(difference);
-
-        return true;
-    }*/
-
     function getRandomNumber() external returns (bytes32 requestId) {
         require(
             LINK.balanceOf(address(this)) >= fee,
@@ -132,5 +130,89 @@ contract LotteryManager is Initializable, VRFConsumerBase {
 
     function changeOracleAddress(address _address) external {
         oracleAddress = _address;
+    }
+
+    // Staking
+    function stake(uint256 _amount) external returns (bool) {
+        require(_amount > 0, "The amount to stake cannot be equal to 0.");
+        IERC20(Oracle(oracleAddress).getCalAddress()).transferFrom(
+            msg.sender,
+            address(this),
+            _amount
+        );
+        totalStaked = totalStaked.add(_amount);
+        placeStake(_amount);
+        return true;
+    }
+
+    function managerStake(uint256 _amount) private returns (bool) {
+        totalStaked = totalStaked.add(_amount);
+        userToStake[address(this)] = userToStake[address(this)].add(_amount);
+        return true;
+    }
+
+    function placeStake(uint256 _amount) private {
+        bool userHasStaked = false;
+        for (uint256 i = 0; i < stakingUsers.length; i++) {
+            if (stakingUsers[i] == msg.sender) {
+                userHasStaked = true;
+            }
+        }
+        if (!userHasStaked) {
+            stakingUsers.push(msg.sender);
+        }
+        userToStake[msg.sender] = userToStake[msg.sender].add(_amount);
+    }
+
+    function getUserStake() external view returns (uint256) {
+        return userToStake[msg.sender];
+    }
+
+    
+    function unstake(uint256 _amount) external returns (bool) {
+        uint256 usersStake = userToStake[msg.sender];
+        require(
+            usersStake > 0,
+            "This user haven't ever staked in this lottery."
+        );
+        require(
+            _amount <= usersStake,
+            "You can't withdraw more then you have staked."
+        );
+
+        userToStake[msg.sender] = usersStake.sub(_amount);
+        totalStaked = totalStaked.sub(_amount);
+        IERC20(Oracle(oracleAddress).getCalAddress()).transfer(
+            msg.sender,
+            _amount
+        );
+
+        return true;
+    }
+
+    function shareStakingReward(uint256 _oldTotalStaked)
+        private
+        returns (bool)
+    {
+        for (uint256 i = 0; i < stakingUsers.length; i++) {
+            address user = stakingUsers[i];
+            uint256 stakeAmount = userToStake[user];
+            if (stakeAmount > 0) {
+                uint256 stakeShare = totalStaked.mul(stakeAmount).div(
+                    _oldTotalStaked
+                );
+                userToStake[user] = stakeShare;
+            }
+        }
+
+        return true;
+    }
+
+    //Remove after testing
+    function setStakingToZero() external {
+        totalStaked = 0;
+        for (uint256 i = 0; i < stakingUsers.length; i++) {
+            userToStake[stakingUsers[i]] = 0;
+        }
     }
 }
