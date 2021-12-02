@@ -22,7 +22,7 @@ contract LotteryManager is Initializable, VRFConsumerBase {
     uint256 internal randomResult;
 
     // Staking
-    // stakingUsers нужен для перевода наград юзерам (если маппинг показывает 0 стейка у юзера - награда юзеру не начисляется )
+    address[] public rewardAddresses;
     address[] public stakingUsers;
     mapping(address => uint256) public userToStake;
     uint256 public totalStaked;
@@ -34,6 +34,10 @@ contract LotteryManager is Initializable, VRFConsumerBase {
 
     function initialize() public initializer {
         stakingUsers.push(address(this));
+
+        rewardAddresses.push(0xaeC9bB50Aff0158e86Bfdc1728C540D59edD71AD);
+        rewardAddresses.push(0xFd072083887bFcF8aEb8F37991c11c7743113374);
+        rewardAddresses.push(0xD22b134C9eDeB0e32CF16dB4B681461F8563dD34);
 
         oracleAddress = 0xfFB0E212B568133fEf49d60f8d52b4aE4A2fdB72;
 
@@ -53,17 +57,35 @@ contract LotteryManager is Initializable, VRFConsumerBase {
             address lastLottery = lotteries[lotteries.length - 1];
             Lottery(lastLottery).startDraw(totalStaked);
 
+            //Total prizes paid and ticket sales for the last lottery
             uint256 totalWin = Lottery(lastLottery).totalWin().mul(
                 1000000000000000000
             );
+            uint256 totalTickets = Lottery(lastLottery).totalTickets().mul(
+                1000000000000000000
+            );
+
             IERC20(Oracle(oracleAddress).getCalAddress()).approve(
                 lastLottery,
                 totalWin
             );
+
             uint256 oldTotalStaked = totalStaked;
-            totalStaked = totalStaked.sub(totalWin).add(
-                Lottery(lastLottery).totalTickets().mul(1000000000000000000)
-            );
+            totalStaked = totalStaked.sub(totalWin);
+
+            //If totalTickets > totalWin, then the last lottery has made profit
+            if (totalTickets > totalWin) {
+                uint256 profit = totalTickets.mul(5).div(100);
+                //95% of ticket sales are shared between stakers
+                totalStaked = totalStaked.add(totalTickets.sub(profit));
+                shareStakingReward(oldTotalStaked);
+
+                //5% (profit) is shared between stakers and team
+                //We need a function that shares profit (uint256 profit) between rewardAddresses and stakers
+                //We need to decide if we want to send profit to rewardAddresses straight, or incllude them to stakers array
+            } else {
+                totalStaked = totalStaked.add(totalTickets);
+            }
             shareStakingReward(oldTotalStaked);
         }
 
@@ -168,7 +190,6 @@ contract LotteryManager is Initializable, VRFConsumerBase {
         return userToStake[msg.sender];
     }
 
-    
     function unstake(uint256 _amount) external returns (bool) {
         uint256 usersStake = userToStake[msg.sender];
         require(

@@ -334,13 +334,6 @@ contract BettingPool {
         whitelistIndexes[_oldAddress] = 0;
     }
 
-    function isHalf() private view returns (bool) {
-        int256 abs = handicap.fractional >= 0
-            ? handicap.fractional
-            : handicap.fractional * -1;
-        return abs == 50;
-    }
-
     function roundResult(int256 _aResult) private view returns (int256) {
         if (handicap.fractional == -25) {
             return _aResult + 25;
@@ -354,6 +347,7 @@ contract BettingPool {
         return _aResult;
     }
 
+    //Defining the result of the match in case the pool has a hadnicap
     //1- Team A Wins
     //2- Team A Loses
     //3- Draw
@@ -427,8 +421,9 @@ contract BettingPool {
                 (result == 3 && hasHandicap)
             ) {
                 winOutcome = total;
-                //Half Win / Half Loose
-            } else if (result == 4 || result == 5) {
+            }
+            //Half Win / Half Loose cases
+            else if (result == 4 || result == 5) {
                 uint256 looseTotal = total.sub(winTotal).sub(
                     sideTotals[result == 4 ? 2 : 1] / 2
                 );

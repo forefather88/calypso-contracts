@@ -20,7 +20,7 @@ contract Lottery {
     address public lotteryManagerAddress;
     bool private isRolledOver;
 
-    //Make private after deploying on Mainnet--------------------
+    //Make private after deploying on Mainnet
     //Result
     address[] public firstPrize;
     address[] public secondPrize;
@@ -201,14 +201,8 @@ contract Lottery {
                 }
             }
         }
-        // Rewards for stakers
-        //      totalWin = totalWin;
-        /*if (totalTickets > totalWin) {
-        
-        }*/
 
         poolSize = _poolSize;
-
         hasDrawn = true;
         return true;
     }
@@ -237,9 +231,7 @@ contract Lottery {
         }
 
         for (uint256 i = 0; i < _amount; i++) {
-            totalTickets = totalTickets.add(
-                1 /* 1 CAL*/
-            );
+            totalTickets = totalTickets.add(1);
             if (_numbers.length == 0) {
                 uint256 ticketNumber = random().add(10000000);
                 userToTickets[msg.sender].push(ticketNumber);
@@ -367,6 +359,7 @@ contract Lottery {
     }
 }
 
+//Using this interface so we do not have to deploy LotteryManager code in Lottery SC
 interface IShareReward {
     function shareStakingReward(uint256 _value) external returns (bool);
 }
