@@ -75,14 +75,17 @@ contract LotteryManager is Initializable, VRFConsumerBase {
 
             //If totalTickets > totalWin, then the last lottery has made profit
             if (totalTickets > totalWin) {
-                uint256 profit = totalTickets.mul(5).div(100);
+                uint256 teamProfit = totalTickets.mul(2).div(100);
+                // uint256 stakerProfit = totalTickets.mul(3).div(100);
                 //95% of ticket sales are shared between stakers
-                totalStaked = totalStaked.add(totalTickets.sub(profit));
+                totalStaked = totalStaked.add(totalTickets.sub(teamProfit));
                 shareStakingReward(oldTotalStaked);
 
                 //5% (profit) is shared between stakers and team
                 //We need a function that shares profit (uint256 profit) between rewardAddresses and stakers
                 //We need to decide if we want to send profit to rewardAddresses straight, or incllude them to stakers array
+                splitLotteryProfit(teamProfit, rewardAddresses);
+                // splitLotteryProfit(stakerProfit, stakingUsers);
             } else {
                 totalStaked = totalStaked.add(totalTickets);
             }
@@ -103,6 +106,21 @@ contract LotteryManager is Initializable, VRFConsumerBase {
 
         randomResult = 0;
         return address(lottery);
+    }
+
+    function splitLotteryProfit(uint256 profit, address[] memory stakers)
+        private
+        returns (bool)
+    {
+        for (uint256 n = 0; n < stakers.length; n++) {
+            address rewardAddress = stakers[n];
+            require(rewardAddress != address(0), "Invalid address");
+            IERC20(Oracle(oracleAddress).getCalAddress()).transfer(
+                rewardAddress,
+                profit.div(stakers.length)
+            );
+        }
+        return true;
     }
 
     function getLotteriesAmount() external view returns (uint256) {

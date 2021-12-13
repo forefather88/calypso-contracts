@@ -259,6 +259,26 @@
       "address": "0x2E3F964fefdf267AC594B4CD9F923dEB30A76640",
       "txHash": "0x0d093517264c643d761b755d5a9f612ea5c17dfb91080789a1f3b7cf541fde62",
       "kind": "transparent"
+    },
+    {
+      "address": "0xE785e81c8edE28266B177Dad2DF433ec718FD6BC",
+      "txHash": "0x04e5997b1151122f7d2687a205b0b31b4a2e5f88cfc95a731bb4c84a5e3b6039",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6611C554321eB257964CB5F6AA93b8435064FB9D",
+      "txHash": "0x2591bce9fea75240924fdc69a7fd41f60db79e13089f0b22f854733b0cf04601",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9ffC59fc9CAB83fa9306aB321cfcA3d59b509E88",
+      "txHash": "0x9f02246861ed0fc22ec63f701216266264ec57305a2a4dbb4655ef25a53ca8da",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x4b069dFa96Bc263d12a08B584B62b2D2Ae3De042",
+      "txHash": "0xd1191086b9a6344101e9eed3a14e5a95bcecaea08c4202ed24b961013efc9c04",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -26288,6 +26308,354 @@
             "label": "mapping(address => uint256)"
           },
           "t_contract(LinkTokenInterface)3922": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "6232fcaad3990003ac55a007fb5212600843ec7dab0a0b9a523a1e65b54a365e": {
+      "address": "0x12Bb9722CC194Cc8B99eC4aEc3FF15AbB218C994",
+      "txHash": "0xf9f90cb991c1558315bffefd3d5843124d582470f17c5b7226da561190a4330d",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\project:\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\project:\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\project:\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)7142",
+            "src": "..\\project:\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\project:\\contracts\\PoolManager.sol:17"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\project:\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\project:\\contracts\\PoolManager.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)7142": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "f87e82d34b7b7890b3b4fbc29a95cd70516591db78b7c82986b2ae6204457061": {
+      "address": "0xc9b324DCA40602b83D0B32477d90A3C11e51E331",
+      "txHash": "0xc4c0b467fb3b912f339e45a4fcc5652087474200de26fda71fdab196e42fa4a8",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\project:\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\project:\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3897",
+            "src": "..\\project:\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\project:\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:22"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "rewardAddresses",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:25"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "stakingUsers",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:26"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "userToStake",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:27"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "totalStaked",
+            "type": "t_uint256",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:28"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_contract(LinkTokenInterface)3897": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "0ce5328a49ae951f8e48edef4244c3ec8fe1c51ffb9a33cb0a9ac624294d4a02": {
+      "address": "0x76bd9297ba20d8a956f43aFB5B5ed50fE5e07738",
+      "txHash": "0xcff0214e09bb3fc13c27c9c5dcf03f12a94baa947c9b74f157d7d591c19b7500",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\project:\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\project:\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3897",
+            "src": "..\\project:\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\project:\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:16"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:20"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:22"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "rewardAddresses",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:25"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "stakingUsers",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:26"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "userToStake",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:27"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "totalStaked",
+            "type": "t_uint256",
+            "src": "..\\project:\\contracts\\LotteryManager.sol:28"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_contract(LinkTokenInterface)3897": {
             "label": "contract LinkTokenInterface"
           },
           "t_mapping(t_bytes32,t_uint256)": {
