@@ -14,10 +14,14 @@ contract PoolManager is Initializable {
     address[] private pools;
     Oracle public oracle;
 
+    // Looks like poolToType is obsolete, cant find any use of it
     mapping(address => uint8) private poolToType; //betting, baccarat
+    // Betting pools inside of a PoolManager. getOwnPools returns an array of betting pools that belongs to a msg.sender
     mapping(address => mapping(uint256 => address[])) private ownPools;
+    //Also looks obsolete
     mapping(uint8 => address[]) private typeToPools; //betting, baccarat
 
+    // Both absolete, probably we should remove from this SC for optimisation
     uint8 constant betting = 0;
     uint8 constant baccarat = 1;
 
@@ -38,10 +42,11 @@ contract PoolManager is Initializable {
         string memory _gameType,
         uint256 _endDate,
         address _currency,
-        //uint256 _poolFee, = _currencyDetails[0]
-        //uint256 _depositedCal, = _currencyDetails[1]
-        //uint256 _minBet, = _currencyDetails[2]
-        //uint256 _minPoolSize, = _currencyDetails[3]
+        /*Since solidity has a limit of params that we can pass to a function call, we pass some params in the _currencyDetails array
+        uint256 _poolFee, = _currencyDetails[0]
+        uint256 _depositedCal, = _currencyDetails[1]
+        uint256 _minBet, = _currencyDetails[2]
+        uint256 _minPoolSize, = _currencyDetails[3]*/
         uint256[] memory _currencyDetails,
         address[] memory _whitelist,
         //_handicapWhole, =_handicap[0] * 100

@@ -13,6 +13,7 @@ contract LotteryManager is Initializable, VRFConsumerBase {
 
     address[] private lotteries;
     address public owner;
+    //Address of Chainlink SC (we use it to generate random number of a lottery, Requires LINK tokens in the LotteryManager)
     address public linkAddress;
     address public oracleAddress;
 
@@ -96,7 +97,8 @@ contract LotteryManager is Initializable, VRFConsumerBase {
         // require(randomResult != 0, "Use getRandomNumber() function first.");
         Lottery lottery = new Lottery(
             msg.sender,
-            11234567, //randomResult.mod(10000000).add(10000000),
+            //We always have to add "1" in the beginning of ticket/winning number, in case if first digit is "0"
+            11234567, //randomResult.mod(10000000).add(10000000), -> returns 7-digit number, for tests we use 1234567
             address(this),
             _totalPrize
         );
@@ -149,6 +151,7 @@ contract LotteryManager is Initializable, VRFConsumerBase {
         return lotteries;
     }
 
+    //Calls a chain link function to generate a random number
     function getRandomNumber() external returns (bytes32 requestId) {
         require(
             LINK.balanceOf(address(this)) >= fee,
@@ -157,6 +160,7 @@ contract LotteryManager is Initializable, VRFConsumerBase {
         return requestRandomness(keyHash, fee);
     }
 
+    //A callback function for getRandomNumber
     function fulfillRandomness(bytes32 requestId, uint256 randomness)
         internal
         override
@@ -248,6 +252,7 @@ contract LotteryManager is Initializable, VRFConsumerBase {
     }
 
     //Remove after testing
+    //Resets stakes and stakers (but keeps all the Cal in the SC anyway)
     function setStakingToZero() external {
         totalStaked = 0;
         for (uint256 i = 0; i < stakingUsers.length; i++) {

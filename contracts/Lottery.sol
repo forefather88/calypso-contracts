@@ -10,18 +10,22 @@ contract Lottery {
     using SafeMath for uint256;
 
     address public oracleAddress;
+    //The winning number of a lottery
     uint256 private winNumber;
+    //Total prize of a lottery
     uint256 public totalPrize;
     address public owner;
+    //Was a lottery drawn
     bool public hasDrawn;
     uint256 public createdDate;
     uint256 public endDate;
+    //Addresses of players of a lottery. Player is a user that has bought at least one ticket
     address[] public players;
     address public lotteryManagerAddress;
-    bool private isRolledOver;
 
-    //Make private after deploying on Mainnet
+    //Make private before deploying on Mainnet
     //Result
+    //Addresses of each part of the total prize, if the address in an array this address can claim its reward
     address[] public firstPrize;
     address[] public secondPrize;
     address[] public thirdPrize;
@@ -33,7 +37,9 @@ contract Lottery {
     //Pool size at the time the lottery was drawn
     uint256 poolSize;
 
+    //Make private before deploying on Mainnet
     // Prizes
+    //Total amount of cal to win for each prize
     uint256 public totalWin;
     uint256 public firstPrizeTotal;
     uint256 public secondPrizeTotal;
@@ -43,12 +49,10 @@ contract Lottery {
     uint256 public match2Total;
     uint256 public match1Total;
 
-    //-----------------------------------------
-
     // Tickets and prizes
-    mapping(address => uint256[]) public userToTickets;
-    address[] public usersClaimedPrize;
-    uint256 public totalTickets;
+    mapping(address => uint256[]) public userToTickets; //Tickets of a user
+    address[] public usersClaimedPrize; //Tickets of a users that have claimed their prize
+    uint256 public totalTickets; //Total amount of tickets purchased in a lottery
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Only owner is allowed");
@@ -207,6 +211,7 @@ contract Lottery {
         return true;
     }
 
+    //Purchasing tickets by a user
     function getTicketBatch(uint256 _amount, uint256[] memory _numbers)
         external
         returns (bool)
@@ -280,6 +285,7 @@ contract Lottery {
         _winNumber = hasDrawn ? winNumber.mod(10000000) : 0;
     }
 
+    //Returns winners' addresses for each prize
     function getWinners()
         external
         view
@@ -319,6 +325,7 @@ contract Lottery {
         return false;
     }
 
+    //Generates random number for a ticket (user can also choose to input numbers manually)
     function random() internal view returns (uint256) {
         return
             uint256(
@@ -336,6 +343,7 @@ contract Lottery {
         oracleAddress = _address;
     }
 
+    // We are planning to burn all prizes in case they were not claimed after a lottery was drawn
     function burnPrizes() external onlyOwner {
         require(
             block.timestamp >= endDate + 3600 * 24 * 30,

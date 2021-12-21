@@ -47,19 +47,26 @@ contract BettingPool {
     bool public isUnlimited;
 
     // Progress
+    //Total sum of all bets made in a pool
     uint256 public total;
     Bet[] private bets;
     address[] betUsers; // list bet user
+    // Contains indexes of betIds in bets array
     mapping(string => uint256) private betIdToIndex;
+    //Bet Ids of a specific user
     mapping(address => string[]) private userBetIds;
     mapping(address => mapping(uint8 => uint256)) private userSideBet; // user -> side -> bet amount
+    //Should be total bet of a user
     mapping(address => uint256) userBet; // user -> bet amount (use for affiliates, withdraw without result)
     mapping(uint8 => uint256) public sideTotals; // side -> total bet
 
     // Result
-    uint8 public result; //0: not yet, 1: team1, 2: team2, 3: draw
+    uint8 public result; //0: not yet, 1: team1, 2: team2, 3: draw, 4: team1 half wins, 5: team1 half loses
+    // Total amount of bets on a winning side
     uint256 public winTotal;
+    // Total amount thats should be shared between bettors and paid to them
     uint256 public winOutcome;
+    // Total refund in case if result is 4 or 5
     uint256 refund;
     uint256 public poolFeeAmount;
     uint256 public platformFeeAmount;
@@ -348,6 +355,8 @@ contract BettingPool {
     }
 
     //Defining the result of the match in case the pool has a hadnicap
+    //I think that  there is no need to keep defineResult and roundResult in SC
+    //Its better to move it to the api
     //1- Team A Wins
     //2- Team A Loses
     //3- Draw
@@ -385,6 +394,7 @@ contract BettingPool {
         }
     }
 
+    //Sets the result of a pool, calculates winnings, refunds etc.
     function setResult(
         uint8 _sideWin,
         int256 _aResult,
@@ -545,6 +555,7 @@ contract BettingPool {
     }
 
     //Staking
+    //Shares platform fee between stakers
     function forwardPlatformFee() internal {
         require(platformFeeAmount > 0);
         address stakingAddress = oracle.getStakingAddress();
@@ -559,6 +570,7 @@ contract BettingPool {
     }
 
     //Affiliate
+    //Currently we are not using Affiliates system
     function forwardAffiliateAward() internal {
         require(platformFeeAmount > 0);
         address affiliateAddr = poolManager.getAffiliateAddress();
