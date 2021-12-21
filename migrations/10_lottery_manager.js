@@ -9,7 +9,7 @@ module.exports = async function (deployer) {
   // console.log("Deployed", instance.address);
 
   //Updrade
-  await upgradeProxy("0x6611C554321eB257964CB5F6AA93b8435064FB9D", SC, {
+  await upgradeProxy("0xAeA3fd4734464b2ECf8a328ABe845d47BdEaB970", SC, {
     deployer,
   });
 };
