@@ -349,6 +349,36 @@
       "address": "0xAeA3fd4734464b2ECf8a328ABe845d47BdEaB970",
       "txHash": "0x6348c3a0ae096a497308881c041bfacf92f18ed51b24deed55a3760514a88175",
       "kind": "transparent"
+    },
+    {
+      "address": "0x51BD01568cD3BdD95ce068140823EDEd70b8511E",
+      "txHash": "0x6472a5be7fdb246f4caa9e12105813610efc522bedc5a2bc9d4768eebde84143",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x1F019AD94953117b1dDBFAbbd030d64670efF2Ff",
+      "txHash": "0xc312e3da5edf66be20061a1659d9f9e690e8ea9cc8f07670f34636c51281292d",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xF22BD3583c22845aBbeD4ce537fdDf5126fF6159",
+      "txHash": "0xb846b73b45df6aaae64e7429ee5b8ab1f9312e96c9bebd6e928587d0f96dd521",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x82cd98263fe9653F5277EE7fAfadd722a8F73208",
+      "txHash": "0xcbd1ec01c091dbb053ac8f47269df24ff237bd32bf2da034f4e95e3f6cd883e1",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x2d63c02d92DAE0AA13c1141DA05CFAD6a45d8C38",
+      "txHash": "0xd90d8901bcb74c2e171c81c3a115d5c4521377c569128b7ad407d9361ee384da",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6c3D4978cF4b37A250271183d0121d1f60dA4c92",
+      "txHash": "0xa0b4fc35d8019ac971f04ed77f1e499531d334f608a2ff57df411cf98b2ec81b",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -27087,6 +27117,354 @@
           },
           "t_mapping(t_bytes32,t_uint256)": {
             "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "bacf8022121f139f45f70405965a2b4aac772820caace4ba56f51ecbbd1c338f": {
+      "address": "0x9f2bF969DdecCf8649219f52a71E40C11Ae3fbA2",
+      "txHash": "0x3960ae5e309cc9d60df131c483cf77ffd555541a3a4d27c407fe49c4c33d6f00",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3897",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:18"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:23"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "rewardAddresses",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:26"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "stakingUsers",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:27"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "userToStake",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:28"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "totalStaked",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:29"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_contract(LinkTokenInterface)3897": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "85d70f27f91753e55a06bfc6aadc96413fe0702dbc0ac8f9b9c2c0769fbf52a4": {
+      "address": "0x9Da624c9525eb50a3bf642B211e17D4d89453077",
+      "txHash": "0xd736fff3a7ae6e06be2b26f7f43e966ad01b2cc4f57a78f10be94e472bff8940",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "LINK",
+            "type": "t_contract(LinkTokenInterface)3897",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:34"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "vrfCoordinator",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:35"
+          },
+          {
+            "contract": "VRFConsumerBase",
+            "label": "nonces",
+            "type": "t_mapping(t_bytes32,t_uint256)",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\Link\\VRFConsumerBase.sol:37"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "lotteries",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:14"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:15"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "linkAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:17"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "oracleAddress",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:18"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "keyHash",
+            "type": "t_bytes32",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:21"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:22"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "randomResult",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:23"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "rewardAddresses",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:26"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "stakingUsers",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:27"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "userToStake",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:28"
+          },
+          {
+            "contract": "LotteryManager",
+            "label": "totalStaked",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\LotteryManager.sol:29"
+          }
+        ],
+        "types": {
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_contract(LinkTokenInterface)3897": {
+            "label": "contract LinkTokenInterface"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "ff5d62959c805b574cf8d3a72c42fdec20e8bbd59cf945c7464176e73dad94f0": {
+      "address": "0x399e5Aa419e1deD8318941A598ab2762b554F9D4",
+      "txHash": "0xa5a1836d7dc19c09c445a9ddb09b6ed5380928367c2ee7f0414ebecc0bc4140f",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:22"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\OpenZeppelin\\Initializable.sol:27"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\PoolManager.sol:13"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "pools",
+            "type": "t_array(t_address)dyn_storage",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\PoolManager.sol:14"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "oracle",
+            "type": "t_contract(Oracle)7207",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\PoolManager.sol:15"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "poolToType",
+            "type": "t_mapping(t_address,t_uint8)",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\PoolManager.sol:18"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "ownPools",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\PoolManager.sol:20"
+          },
+          {
+            "contract": "PoolManager",
+            "label": "typeToPools",
+            "type": "t_mapping(t_uint8,t_array(t_address)dyn_storage)",
+            "src": "..\\..\\..\\D\\laravel_code\\calypso-contracts\\contracts\\PoolManager.sol:22"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_address)dyn_storage": {
+            "label": "address[]"
+          },
+          "t_contract(Oracle)7207": {
+            "label": "contract Oracle"
+          },
+          "t_mapping(t_address,t_uint8)": {
+            "label": "mapping(address => uint8)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_address)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => address[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint256 => address[])"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_uint8,t_array(t_address)dyn_storage)": {
+            "label": "mapping(uint8 => address[])"
           },
           "t_bool": {
             "label": "bool"

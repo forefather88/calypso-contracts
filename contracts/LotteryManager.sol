@@ -76,7 +76,7 @@ contract LotteryManager is Initializable, VRFConsumerBase {
 
             //If totalTickets > totalWin, then the last lottery has made profit
             if (totalTickets > totalWin) {
-                uint256 teamProfit = totalTickets.mul(2).div(100);
+                uint256 teamProfit = (totalTickets.sub(totalWin)).mul(2).div(100);
                 // uint256 stakerProfit = totalTickets.mul(3).div(100);
                 //95% of ticket sales are shared between stakers
                 totalStaked = totalStaked.add(totalTickets.sub(teamProfit));
